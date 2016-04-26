@@ -1,10 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Meteor } from 'meteor/meteor'
-
-import Welcome from '../imports/ui/Welcome'
+import { routes } from '../imports/startup/client/routes.jsx'
 
 Meteor.startup(() => {
-  render(<Welcome />, document.getElementById('render-app'))
+  render(routes(), document.getElementById('render-app'))
 })
 
