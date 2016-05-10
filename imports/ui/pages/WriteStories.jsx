@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import React from 'react'
 import DropDownList from '../components/DropDownList.jsx'
-import { LocalCountries } from '../../api/writestories/client/collections.js'
+import { LocalCountries, LocalDates } from '../../api/writestories/client/collections.js'
 
 class WriteStories extends React.Component {
 
@@ -9,21 +9,28 @@ class WriteStories extends React.Component {
     super(props)
     this.state = {}
     this.handleCountryChange = this.handleCountryChange.bind(this)
+    this.handleDateChange = this.handleDateChange.bind(this)
   }
 
   componentWillMount () {
-    this.options = LocalCountries.find().fetch()
+    this.countries = LocalCountries.find({}, {sort: {value: 0}}).fetch()
+    this.dates = LocalDates.find({}, {sort: {value: -1}}).fetch()
   }
 
   handleCountryChange (e) {
-    this.setState({country: e.target.value}, () => console.log('afinal: ' + this.state.country))
+    this.setState({country: e.target.value}, () => console.log('country selected: ' + this.state.country))
+  }
+
+  handleDateChange (e) {
+    this.setState({date: e.target.value}, () => console.log('date selected: ' + this.state.date))
   }
 
   render () {
     return (
       <div>
         <h5>Write Stories</h5>
-        <DropDownList name={this.props.name} defaultValue={this.props.selected} options={this.options} onChange={this.handleCountryChange}/>
+        <DropDownList name='countryList' defaultValue={this.props.selected} options={this.countries} onChange={this.handleCountryChange}/>
+        <DropDownList name='dateList' defaultValue={this.props.selected} options={this.dates} onChange={this.handleDateChange}/>
       </div>
     )
   }
@@ -32,9 +39,8 @@ class WriteStories extends React.Component {
 WriteStories.propTypes = {}
 
 WriteStories.defaultProps = {
-  name: 'countryList',
-  // options: [{'value': 'one'}, {'value': 'spain'}],
-  selected: 'spain'
+  selectedCountry: 'spain',
+  selectedDate: '2015'
 }
 
 export default WriteStories
