@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
-import Countries from '../collections'
+import { Locations } from '../collections.js'
 
-Meteor.publish('countries', function () {
-  return Countries.find()
+Meteor.publish('locations.public', function () {
+  return Locations.find({}, { fields: Locations.publicFields })
 })

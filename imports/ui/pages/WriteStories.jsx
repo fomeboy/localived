@@ -25,22 +25,30 @@ class WriteStories extends React.Component {
     this.setState({date: e.target.value}, () => console.log('date selected: ' + this.state.date))
   }
 
+  handleLocationChange (e) {
+    this.setState({location: e.target.value}, () => console.log('location selected: ' + this.state.location))
+  }
+
   render () {
     return (
       <div>
         <h5>Write Stories</h5>
-        <DropDownList name='countryList' defaultValue={this.props.selected} options={this.countries} onChange={this.handleCountryChange}/>
-        <DropDownList name='dateList' defaultValue={this.props.selected} options={this.dates} onChange={this.handleDateChange}/>
+        <DropDownList name='countryList' defaultValue={this.props.selectedCountry} options={this.countries} onChange={this.handleCountryChange}/>
+        <DropDownList name='dateList' defaultValue={this.props.selectedDate} options={this.dates} onChange={this.handleDateChange}/>
+        <DropDownList name='locationsList' defaultValue={this.props.selectedLocation} options={this.props.data} onChange={this.handleLocationChange}/>
       </div>
     )
   }
 }
 
-WriteStories.propTypes = {}
+WriteStories.propTypes = {
+  data: React.PropTypes.array
+}
 
 WriteStories.defaultProps = {
-  selectedCountry: 'spain',
-  selectedDate: '2015'
+  selectedCountry: 'Portugal',
+  selectedDate: '2015',
+  selectLocation: 'Lisboa'
 }
 
 export default WriteStories
