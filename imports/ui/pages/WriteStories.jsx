@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import React from 'react'
+import ReactDOM from 'react-dom'
 import DropDownList from '../components/DropDownList.jsx'
 import InputAutoComplete from '../components/InputAutoComplete.jsx'
 import { Session } from 'meteor/session'
@@ -24,6 +25,7 @@ class WriteStories extends React.Component {
 
   handleCountryChange (e) {
     Session.set('selectedCountry', e.target.value)
+    this.refs.inputLoc.state.value = ''
     this.setState({country: e.target.value}, () => console.log('country selected: ' + this.state.country))
   }
 
@@ -45,7 +47,7 @@ class WriteStories extends React.Component {
         <DropDownList name='countryList' defaultValue={this.props.selectedCountry} options={this.props.countries} onChange={this.handleCountryChange}/>
         <DropDownList name='dateList' defaultValue={this.props.selectedDate} options={this.props.dates} onChange={this.handleDateChange}/>
         {/* <DropDownList name='locationsList' defaultValue={this.props.selectedLocation} options={this.props.locations} onChange={this.handleLocationChange}/> */}
-        <InputAutoComplete name='locationsInput' placeholder='Type location' options={this.props.locations} onBlur={this.handleLocationChange}/>
+        <InputAutoComplete ref='inputLoc' name='locationsInput' placeholder='Type location' options={this.props.locations} onBlur={this.handleLocationChange}/>
       </div>
     )
   }
