@@ -1,8 +1,10 @@
 import { Meteor } from 'meteor/meteor'
-import { Countries } from './collections.js'
-import { Dates } from './collections.js'
+import { Languages, Countries, Dates } from './collections.js'
 
 Meteor.methods({
+  getLanguages: function (msg) {
+    return Languages.find().fetch()
+  },
   getCountries: function (msg) {
     return Countries.find().fetch()
   },
