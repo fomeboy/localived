@@ -54,7 +54,13 @@ class InputAutoComplete extends React.Component {
     }
 
     return (
-      <Autosuggest suggestions={suggestions} onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested} renderSuggestion={this.renderSuggestion} getSuggestionValue={this.getSuggestionValue} inputProps={inputProps}/>
+      <Autosuggest
+        suggestions={suggestions}
+        onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
+        renderSuggestion={this.renderSuggestion}
+        getSuggestionValue={this.getSuggestionValue}
+        inputProps={inputProps}
+      />
     )
   }
 }
