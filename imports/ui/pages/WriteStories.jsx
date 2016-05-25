@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 import DropDownList from '../components/DropDownList.jsx'
 import InputAutoComplete from '../components/InputAutoComplete.jsx'
 import InputText from '../components/InputText.jsx'
+import TextArea from '../components/TextArea.jsx'
+import Button from '../components/Button.jsx'
 import { Session } from 'meteor/session'
 
 class WriteStories extends React.Component {
@@ -16,6 +18,8 @@ class WriteStories extends React.Component {
     this.handleDateChange = this.handleDateChange.bind(this)
     this.handleLocationChange = this.handleLocationChange.bind(this)
     this.handleTitleChange = this.handleTitleChange.bind(this)
+    this.handleStoryChange = this.handleStoryChange.bind(this)
+    this.handleButtonClick = this.handleButtonClick.bind(this)
   }
 
   // componentWillMount () {
@@ -47,6 +51,17 @@ class WriteStories extends React.Component {
     })
   }
 
+  handleStoryChange (e) {
+    this.setState({story: e.target.value}, () => {
+      console.log('story change: ' + this.state.story)
+    })
+  }
+
+  handleButtonClick (e) {
+    // submit story
+    console.log('clickei no butao')
+  }
+
   render () {
     return (
       <div>
@@ -56,6 +71,8 @@ class WriteStories extends React.Component {
         <DropDownList name='dateList' defaultValue={this.props.selectedDate} options={this.props.dates} onChange={this.handleDateChange}/>
         <InputAutoComplete ref='inputLoc' name='locationsInput' placeholder='Type location' options={this.props.locations} onBlur={this.handleLocationChange}/>
         <InputText name='titleInput' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
+        <TextArea name='storyTextArea' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
+        <Button name='submitButton' value='Submit' onClick={this.handleButtonClick} disabled={false}/>
       </div>
     )
   }
