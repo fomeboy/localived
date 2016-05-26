@@ -4,15 +4,15 @@ class ReadStories extends React.Component {
 
   render () {
     return (
-      <div> 
+      <div>
         <h1>Read Stories</h1>
         <ul>
-          <li>fodasse</li>
-          <li>fodasse2</li>
-          <li>fodasse3</li>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
         </ul>
-      </div>  
-    )  
+      </div>
+    )
   }
 }
 
