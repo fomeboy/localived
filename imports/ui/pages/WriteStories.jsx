@@ -7,6 +7,7 @@ import InputText from '../components/InputText.jsx'
 import TextArea from '../components/TextArea.jsx'
 import Button from '../components/Button.jsx'
 import { Session } from 'meteor/session'
+import { publishStory } from '../../api/writestories/methods.js' 
 
 class WriteStories extends React.Component {
 
@@ -58,8 +59,20 @@ class WriteStories extends React.Component {
   }
 
   handleButtonClick (e) {
-    // submit story
-    console.log('clickei no butao')
+    publishStory.call({
+      user: 'ajshssh5', // for test only
+      creationDate: new Date(),
+      language: this.state.language,
+      country: this.state.country,
+      location: this.state.location,
+      date: this.state.date,
+      title: this.state.title,
+      story: this.state.story
+    }, (err, res) => {
+      if (err) {
+        console.log('Error submiting story: ' + err)
+      }
+    })
   }
 
   render () {
