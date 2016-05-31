@@ -22,3 +22,4 @@ react-meteor-data
 session
 aldeed:simple-schema
 mdg:validated-method
+accounts-password

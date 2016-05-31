@@ -9,7 +9,6 @@ Meteor.call('getLanguages', null, (err, res) => {
     LocalLanguages.remove({})
     res.forEach((item) => {
       LocalLanguages.insert(item)
-      console.log(item)
     })
   }
 })
@@ -21,7 +20,6 @@ Meteor.call('getCountries', null, (err, res) => {
     LocalCountries.remove({})
     res.forEach((item) => {
       LocalCountries.insert(item)
-      console.log(item)
     })
   }
 })
@@ -33,7 +31,6 @@ Meteor.call('getDates', null, (err, res) => {
     LocalDates.remove({})
     res.forEach((item) => {
       LocalDates.insert(item)
-      console.log(item)
     })
   }
 })

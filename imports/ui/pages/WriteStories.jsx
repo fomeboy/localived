@@ -7,7 +7,8 @@ import InputText from '../components/InputText.jsx'
 import TextArea from '../components/TextArea.jsx'
 import Button from '../components/Button.jsx'
 import { Session } from 'meteor/session'
-import { publishStory } from '../../api/writestories/methods.js' 
+import { browserHistory } from 'react-router'
+import { publishStory } from '../../api/writestories/methods.js'
 
 class WriteStories extends React.Component {
 
@@ -23,8 +24,11 @@ class WriteStories extends React.Component {
     this.handleButtonClick = this.handleButtonClick.bind(this)
   }
 
-  // componentWillMount () {
-  // }
+  componentWillMount () {
+    if (!Meteor.userId) {
+      browserHistory.replace('/login')
+    }
+  }
 
   handleLanguageChange (e) {
     this.setState({language: e.target.value}, () => console.log('language selected: ' + this.state.language))
