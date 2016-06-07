@@ -16,6 +16,7 @@ class Login extends React.Component {
     this.handleUserChangeLogin = this.handleUserChangeLogin.bind(this)
     this.handlePasswordChangeLogin = this.handlePasswordChangeLogin.bind(this)
     this.handleLogInClick = this.handleLogInClick.bind(this)
+    this.handleRestorePassClick = this.handleRestorePassClick.bind(this)
 
     this.handleUserChange = this.handleUserChange.bind(this)
     this.handleEmailChange = this.handleEmailChange.bind(this)
@@ -29,14 +30,31 @@ class Login extends React.Component {
   }
 
   handleUserChangeLogin (e) {
-    this.setState({userName: e.target.value}, () => console.log('user selected: ' + this.state.userName))
+    this.setState({userName: e.target.value})
   }
 
   handlePasswordChangeLogin (e) {
-    this.setState({password: e.target.value}, () => console.log('password selected: ' + this.state.password))
+    this.setState({password: e.target.value})
   }
 
-  handleLogInClick (e) {
+  handleRestorePassClick () {
+    this.msgs = []
+    var user = Meteor.users.findOne({'username': this.state.userName})
+
+    Meteor.call('sendResetPasswordEmail',
+                user,
+                function (err, res) {
+                  if (err) {
+                    this.msgs.push('Error sending password reset instructions')
+                  } else {
+                    this.msgs.push('Password rest instructions were sent to your email')
+                  }
+                  this.setState({msgs: this.msgs})
+                }.bind(this)
+               )
+  }
+
+  handleLogInClick () {
     this.msgs = []
     this.setState({msgs: [], passError: false})
     required(this.state.userName, this.msgs, 'Username')
@@ -60,18 +78,18 @@ class Login extends React.Component {
   }
 
   handleUserChange (e) {
-    this.setState({userNameSign: e.target.value}, () => console.log('user selected: ' + this.state.userNameSign))
+    this.setState({userNameSign: e.target.value})
   }
 
   handleEmailChange (e) {
-    this.setState({email: e.target.value}, () => console.log('email selected: ' + this.state.email))
+    this.setState({email: e.target.value})
   }
 
   handlePasswordChange (e) {
-    this.setState({passwordSign: e.target.value}, () => console.log('password selected: ' + this.state.passwordSign))
+    this.setState({passwordSign: e.target.value})
   }
 
-  handleSignUpClick (e) {
+  handleSignUpClick () {
     this.msgs = []
     this.setState({msgs: [], passError: false})
     required(this.state.userNameSign, this.msgs, 'Username')
@@ -85,7 +103,10 @@ class Login extends React.Component {
       Accounts.createUser({username: this.state.userNameSign,
                            email: this.state.email,
                            password: this.state.passwordSign,
-                           profile: {}},
+                           profile: {
+                             name: '',
+                             languages: []
+                           }},
                            (err) => {
                              if (err) {
                                this.setState({ msgs: this.state.msgs.concat(err.reason) })
@@ -100,12 +121,13 @@ class Login extends React.Component {
   render () {
     return (
       <div>
+        <h2>{Meteor.userId()}</h2>
         <div>
           <h5>LOGIN</h5>
-          {this.state.passError ? <p>toma</p> : null}
           <InputText name='userInputLogin' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
           <InputPass name='passwordInputLogin' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
           <Button name='loginButton' value='Log in' onClick={this.handleLogInClick} disabled={false}/>
+          {this.state.passError ? <Button name='restorePassButton' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/> : null}
         </div>
 
         <div>
