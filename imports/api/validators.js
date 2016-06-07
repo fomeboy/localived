@@ -11,3 +11,9 @@ export function email (value, errorMsgs, field) {
     }
   }
 }
+
+export function equality (value1, value2, errorMsgs, field) {
+  if (value1 !== value2) {
+    errorMsgs.push(field + ' do not match!')
+  }
+}
