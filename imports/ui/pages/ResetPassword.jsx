@@ -57,14 +57,11 @@ class ResetPassword extends React.Component {
   render () {
     return (
       <div>
-        <h2>{Meteor.userId()}</h2>
-        <div>
-          <h5>Reset Password</h5>
-          <InputPass name='passwordInput' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
-          <InputPass name='passwordInput2' onBlur={this.handlePasswordChange2} disabled={false} readonly={false}/>
-          <Button name='resetButton' value='Reset password' onClick={this.handleResetClick} disabled={false}/>
-          <MessageList name='msgList' msgs={this.state.msgs}/>
-        </div>
+        <h5>Reset Password</h5>
+        <InputPass name='passwordInput' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
+        <InputPass name='passwordInput2' onBlur={this.handlePasswordChange2} disabled={false} readonly={false}/>
+        <Button name='resetButton' value='Reset password' onClick={this.handleResetClick} disabled={false}/>
+        <MessageList name='msgList' msgs={this.state.msgs}/>
       </div>
     )
   }

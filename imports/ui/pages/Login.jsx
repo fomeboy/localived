@@ -16,6 +16,8 @@ class Login extends React.Component {
     this.handleUserChangeLogin = this.handleUserChangeLogin.bind(this)
     this.handlePasswordChangeLogin = this.handlePasswordChangeLogin.bind(this)
     this.handleLogInClick = this.handleLogInClick.bind(this)
+
+    this.handleEmailPassChange = this.handleEmailPassChange.bind(this)
     this.handleRestorePassClick = this.handleRestorePassClick.bind(this)
 
     this.handleUserChange = this.handleUserChange.bind(this)
@@ -25,8 +27,9 @@ class Login extends React.Component {
   }
 
   componentWillMount () {
-    this.setState({msgs: []})
+    this.setState({msgs: [], passError: false})
     this.msgs = []
+    this.loginAttempt = 0
   }
 
   handleUserChangeLogin (e) {
@@ -37,26 +40,10 @@ class Login extends React.Component {
     this.setState({password: e.target.value})
   }
 
-  handleRestorePassClick () {
-    this.msgs = []
-    var user = Meteor.users.findOne({'username': this.state.userName})
-
-    Meteor.call('sendResetPasswordEmail',
-                user,
-                function (err, res) {
-                  if (err) {
-                    this.msgs.push('Error sending password reset instructions')
-                  } else {
-                    this.msgs.push('Password rest instructions were sent to your email')
-                  }
-                  this.setState({msgs: this.msgs})
-                }.bind(this)
-               )
-  }
-
   handleLogInClick () {
     this.msgs = []
-    this.setState({msgs: [], passError: false})
+    this.loginAttempt = this.loginAttempt + 1
+    this.setState({msgs: []})
     required(this.state.userName, this.msgs, 'Username')
     required(this.state.password, this.msgs, 'Password')
 
@@ -69,11 +56,38 @@ class Login extends React.Component {
                                if (err) {
                                  this.setState({msgs: this.state.msgs.concat(err.reason)})
                                  if (/password/g.test(err.reason)) {
-                                   this.setState({passError: true})
+                                   if (this.loginAttempt === 3) {
+                                     this.setState({passError: true})
+                                   }
                                  }
                                }
                              }
                             )
+    }
+  }
+
+  handleEmailPassChange (e) {
+    this.setState({emailPassInput: e.target.value})
+  }
+
+  handleRestorePassClick () {
+    this.msgs = []
+    this.setState({msgs: []})
+    required(this.state.emailPassInput, this.msgs, 'Email')
+
+    if (this.msgs.length > 0) {
+      this.setState({msgs: this.msgs})
+    } else {
+      Accounts.forgotPassword({email: this.state.emailPassInput},
+                              (err) => {
+                                if (err) {
+                                  this.setState({msgs: this.state.msgs.concat(err.reason)})
+                                } else {
+                                  this.setState({passError: false})
+                                  this.setState({msgs: this.state.msgs.concat('Password reset instructions were sento to your email')})
+                                }
+                              }
+                             )
     }
   }
 
@@ -127,7 +141,11 @@ class Login extends React.Component {
           <InputText name='userInputLogin' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
           <InputPass name='passwordInputLogin' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
           <Button name='loginButton' value='Log in' onClick={this.handleLogInClick} disabled={false}/>
-          {this.state.passError ? <Button name='restorePassButton' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/> : null}
+          {this.state.passError ? <div>
+                                    <h2>Forgot password?</h2>
+                                    <InputText name='emailPassInput' onBlur={this.handleEmailPassChange} disabled={false} readonly={false}/>
+                                    <Button name='restorePassButton' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/>
+                                  </div> : null}
         </div>
 
         <div>
