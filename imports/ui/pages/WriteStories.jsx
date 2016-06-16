@@ -25,7 +25,7 @@ class WriteStories extends React.Component {
   }
 
   componentWillMount () {
-    if (!Meteor.userId) {
+    if (!Meteor.userId()) {
       browserHistory.replace('/login')
     }
   }

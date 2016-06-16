@@ -6,6 +6,7 @@ import Button from '../components/Button.jsx'
 import MessageList from '../components/MessageList.jsx'
 import { required, email } from '../../api/validators.js'
 import { Accounts } from 'meteor/accounts-base'
+import { browserHistory } from 'react-router'
 
 class Login extends React.Component {
 
@@ -60,6 +61,8 @@ class Login extends React.Component {
                                      this.setState({passError: true})
                                    }
                                  }
+                               } else {
+                                 browserHistory.replace('/write')
                                }
                              }
                             )

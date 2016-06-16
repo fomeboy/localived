@@ -9,13 +9,16 @@ class Welcome extends React.Component {
     this.state = {}
   }
 
+  componentWillMount () {
+    console.log(Meteor.userId())
+  }
+
   render () {
     return (
       <div>
-        <h1>Stories with context</h1>
+        <h1>Stories with context {Meteor.userId}</h1>
         <Link to='/read'> READ</Link>
-        <Link to='/write'> SHARE</Link>
-        {/* {Meteor.userId ? (<Link to='/write'>SHARE</Link>) : (<Link to='/login'>SHARE</Link>)}  */}
+        {Meteor.userId() ? (<Link to='/write'>SHARE</Link>) : (<Link to='/login'>SHARE</Link>)}
       </div>
     )
   }
