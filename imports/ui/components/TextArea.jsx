@@ -10,22 +10,23 @@ class TextArea extends React.Component {
   render () {
     return (
       <textarea
-        name={this.props.name}
+        className={this.props.className}
         disabled={this.props.disabled}
         readonly={this.props.readonly}
         maxlength={this.props.maxlength}
         onBlur={this.props.onBlur}
-      />
+        >{this.props.value}</textarea>
     )
   }
 }
 
 TextArea.propTypes = {
-  name: React.PropTypes.string,
+  value: React.PropTypes.string,
+  className: React.PropTypes.string.isRequired,
   disabled: React.PropTypes.bool,
   readonly: React.PropTypes.bool,
   maxlength: React.PropTypes.bool,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func
 }
 
 TextArea.defaultProps = {}
