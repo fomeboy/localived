@@ -1,4 +1,4 @@
-.welcome {
+.main {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -9,25 +9,41 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-image: url('background.jpg');
-  background-size: 100% auto ;
 }
 
-.welcome-introduction {
+.main-login {
   height: 95%;
   width: 95%;
   margin: 2.5%;
-  font-family: 'Raleway Dots', sans-serif;
-  font-size: 2.5vw;
+  font-family: 'Exo', sans-serif;
+  font-size: 4vw;
   color: white;
   background-color: transparent;
   border: none;
   resize: none;
-  flex: 3;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.main-signup {
+  height: 95%;
+  width: 95%;
+  margin: 2.5%;
+  font-family: 'Exo', sans-serif;
+  font-size: 4vw;
+  color: #DB3C3B;
+  background-color: transparent;
+  border: none;
+  resize: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .welcome-options {
-  font-family: 'Exo', sans-serif;
+  //font-family: 'Open Sans', sans-serif;
+  //font-family: 'Special Elite', cursive;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -43,7 +59,7 @@
   text-decoration: none;
   padding-bottom: 10px;
   font-size: 5vw;
-  color: white;
+//  color: white;
 }
 
 .welcome-options-write {
@@ -51,24 +67,16 @@
   padding-top: 10px;
   padding-bottom: 20px;
   font-size: 5vw;
-  color: #1EFEFD;
-}
-
-@media screen and (orientation: landscape) and (max-aspect-ratio: 4084/2623) {
-  .welcome {
-    background-size: auto 100%;
-  }
+//  color: #DB3C3B;
 }
 
 @media screen and (orientation: portrait) {
-    .welcome {
+    .main {
       flex-direction: column;
-      background-image: url('background.jpg');
-      background-size: auto 100%;
     }
     
     .welcome-introduction {
-      font-size: 3vh;
+      font-size: 3.5vh;
       margin: 2.5%;
     }
 
@@ -77,16 +85,11 @@
       justify-content: center;
     }
 
-    .welcome-options-read {
-      padding-bottom: 0;
-      padding-right: 10px;
+    .main-login{
       font-size: 5vh;
     }
 
-    .welcome-options-write {
-      padding-top: 0;
-      padding-left: 10px;
-      padding-bottom: 0px;
+    .main-signup {
       font-size: 5vh;
     }
 }

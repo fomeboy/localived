@@ -1,3 +1,4 @@
+import '../stylesheets/login.scss'
 import { Meteor } from 'meteor/meteor'
 import React from 'react'
 import InputText from '../components/InputText.jsx'
@@ -137,21 +138,21 @@ class Login extends React.Component {
 
   render () {
     return (
-      <div>
-        <h2>{Meteor.userId()}</h2>
-        <div>
+      <div className='main'>
+        <div className='main-login'>
           <h5>LOGIN</h5>
-          <InputText name='userInputLogin' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
+          <InputText className='userInputLogin' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
           <InputPass name='passwordInputLogin' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
           <Button name='loginButton' value='Log in' onClick={this.handleLogInClick} disabled={false}/>
-          {this.state.passError ? <div>
-                                    <h2>Forgot password?</h2>
-                                    <InputText name='emailPassInput' onBlur={this.handleEmailPassChange} disabled={false} readonly={false}/>
-                                    <Button name='restorePassButton' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/>
-                                  </div> : null}
+          {this.state.passError
+           ? <div>
+              <h2>Forgot password?</h2>
+              <InputText name='emailPassInput' onBlur={this.handleEmailPassChange} disabled={false} readonly={false}/>
+              <Button name='restorePassButton' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/>
+            </div>
+          : null}
         </div>
-
-        <div>
+        <div className='main-signup'>
           <h5>SIGN UP</h5>
           <InputText name='userInput' onBlur={this.handleUserChange} disabled={false} readonly={false}/>
           <InputText name='emailInput' onBlur={this.handleEmailChange} disabled={false} readonly={false}/>

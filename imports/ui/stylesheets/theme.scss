@@ -1,19 +1,27 @@
 /* Background pattern from subtlepatterns.com */
 body {
-  background-image: url('background.png');
-  background-repeat: repeat;
+  // background-image: url('background.jpg');
+  // background-repeat: repeat;
+  // background-size: 100% auto;
 }
 
 @font-face {
-  font-family: 'Special Elite';
+  font-family: 'Raleway Dots';
   font-style: normal;
   font-weight: 400;
-  src: local('Special Elite'), local('SpecialElite-Regular'), url(https://fonts.gstatic.com/s/specialelite/v6/9-wW4zu3WNoD5Fjka35Jm4kaQb-UsZVONjobs91YQtw.woff) format('woff');
+  src: local('Raleway Dots'), local('RalewayDots-Regular'), url(https://fonts.gstatic.com/s/ralewaydots/v4/lhLgmWCRcyz-QXo8LCzTfKRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
 }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Raleway';
   font-style: normal;
-  font-weight: 300;
-  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTaRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v11/cIFypx4yrWPDz3zOxk7hIQLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Exo Black'), local('Exo-Black'), url(https://fonts.gstatic.com/s/exo/v4/U7BgojK0vYNDufcRPKib6uvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
 }
