@@ -1,3 +1,5 @@
+@import 'theme.scss';
+
 .welcome {
   position: absolute;
   top: 0;
@@ -6,52 +8,98 @@
   right: 0;
   height: 100%;
   width: 100%;
+  background-color: $black;
+  background-size: 100% auto ;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
-  background-image: url('background.jpg');
-  background-size: 100% auto ;
+}
+
+.welcome-about {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-about-title {
+  color: $light_gray;
+  font-family:'Chonburi', cursive;
+  font-size: 5vw;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  //transform: rotate(270deg);
+	//transform-origin: center center 0;
+}
+
+.welcome-about-subtitle {
+  color: $red;
+  font-family:'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  //flex: 1;
+  margin-top: 0;
+  //transform: rotate(270deg);
+	//transform-origin: center center 0;
 }
 
 .welcome-introduction {
-  height: 95%;
-  width: 95%;
-  margin: 2.5%;
-  font-family: 'Raleway Dots', sans-serif;
-  font-size: 2.5vw;
-  color: white;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.welcome-introduction-text {
+  height: 40%;
+  width: 100%;
   background-color: transparent;
+  color: $brownish;
+  -webkit-opacity: 1; 
+  -webkit-text-fill-color: $brownish; 
+  font-family: 'Josefin Slab', serif;
+  font-size: 2vw;
+  text-align: center;
   border: none;
   resize: none;
-  flex: 3;
 }
 
 .welcome-options {
-  font-family: 'Exo', sans-serif;
-  margin: 0;
-  padding: 0;
   height: 100%;
   width: 100%;
-  display: flex;
+  font-family:'Chonburi', cursive;
+  margin: 0;
+  padding: 0;
   flex: 1;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  display: flex;
+  flex-direction:  column;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: $black;
 }
 
 .welcome-options-read {
   text-decoration: none;
-  padding-bottom: 10px;
+  padding-bottom: 1vw;
+  padding-right: 5vw;
   font-size: 5vw;
-  color: white;
+  color: $light_gray;
 }
 
 .welcome-options-write {
   text-decoration: none;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 1vw;
+  padding-right: 5vw;
   font-size: 5vw;
-  color: #1EFEFD;
+  color: $red;
 }
 
 @media screen and (orientation: landscape) and (max-aspect-ratio: 4084/2623) {

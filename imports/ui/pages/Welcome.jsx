@@ -9,7 +9,7 @@ class Welcome extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
-    this.message = `\n\n\n\n\nOur daily rituals, social interactions, joys and disappointments take place in a village, community or neighbourhood.\nLife occurs locally.\nThese combined experiences shape our individual identity and that of our communities.\nStories old and new connect us to one another and tell us what it means to be human.\n\n\nlocalived . local stories worth sharing`
+    this.message = `Our daily rituals, social interactions, joys and disappointments take place in a village, community or neighbourhood. Life occurs locally.\nThese combined experiences shape our individual identity and that of our communities.\nStories old and new connect us to one another and tell us what it means to be human.`
   }
 
   componentWillMount () {
@@ -17,12 +17,18 @@ class Welcome extends React.Component {
   }
 
   render () {
-    let shareLink = Meteor.userId() ? <Link className='welcome-options-write' to='/write'>SHARE</Link> : <Link className='welcome-options-write' to='/login'>SHARE</Link>
+    let shareLink = Meteor.userId() ? <Link className='welcome-options-write' to='/write'>Share</Link> : <Link className='welcome-options-write' to='/login'>Share</Link>
     return (
       <div className='welcome'>
-        <TextArea className='welcome-introduction' readonly={true} disabled={true} value={this.message}/>
+        <div className='welcome-about'>
+          <p className='welcome-about-title'>localived</p>
+          <p className='welcome-about-subtitle'>Local Stories Worth Sharing</p>
+        </div>
+        <div className='welcome-introduction'>
+          <TextArea className='welcome-introduction-text' readonly={true} disabled={true} value={this.message}/>
+        </div>
         <div className='welcome-options'>
-          <Link className='welcome-options-read' to='/read'>READ</Link>
+          <Link className='welcome-options-read' to='/read'>Read</Link>
           {shareLink}
         </div>
       </div>
