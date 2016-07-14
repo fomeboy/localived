@@ -1,17 +1,18 @@
 /* Globals */
-$light_gray: #E4E3DC; 
-$black: #141516;
-$red: #8D332B;
-$brownish: #827A6D;
+$yellow: #FAD567; 
+$orange: #F98358;
+$rose: #D2597F;
+$indigo: #978EAB;
+$blue: #569DB9;
+$green: #74AAA3;
+$olive: #50646E;
+$grey: #F0F0F0;
 
-/* Background pattern from subtlepatterns.com */
 body {
-  // background-image: url('background.jpg');
-  // background-repeat: repeat;
-  // background-size: 100% auto;
+  background-color: $grey;
 }
 
 /* Fonts */
 @import url(https://fonts.googleapis.com/css?family=Chonburi);
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url(https://fonts.googleapis.com/css?family=Josefin+Slab);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Slab:300);

@@ -8,8 +8,6 @@
   right: 0;
   height: 100%;
   width: 100%;
-  background-color: $black;
-  background-size: 100% auto ;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -17,8 +15,13 @@
 }
 
 .welcome-about {
-  height: 100%;
-  width: 100%;
+  background-color: $green;
+  height: 95%;
+  width: 95%;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -27,31 +30,29 @@
 }
 
 .welcome-about-title {
-  color: $light_gray;
+  color: white;
   font-family:'Chonburi', cursive;
   font-size: 5vw;
   display: block;
   margin-top: 0;
   margin-bottom: 0;
-  //transform: rotate(270deg);
-	//transform-origin: center center 0;
 }
 
 .welcome-about-subtitle {
-  color: $red;
+  color: white;
   font-family:'Montserrat', sans-serif;
   font-size: 1.8vw;
-  //flex: 1;
   margin-top: 0;
-  //transform: rotate(270deg);
-	//transform-origin: center center 0;
 }
 
 .welcome-introduction {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  background-color:$green;
+  height: 95%;
+  width: 95%;
+  margin-left: 0;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   flex: 1;
   display: flex;
   flex-direction: row;
@@ -59,82 +60,98 @@
 }
 
 .welcome-introduction-text {
-  height: 40%;
-  width: 100%;
   background-color: transparent;
-  color: $brownish;
+  color: white;
   -webkit-opacity: 1; 
-  -webkit-text-fill-color: $brownish; 
+  -webkit-text-fill-color: white; 
   font-family: 'Josefin Slab', serif;
-  font-size: 2vw;
-  text-align: center;
+  font-size: 1.6vw;
+  padding: 10%;
+  text-align: justify;
   border: none;
   resize: none;
 }
 
 .welcome-options {
-  height: 100%;
-  width: 100%;
+  background-color: $olive;
+  height: 95%;
+  width: 95%;
   font-family:'Chonburi', cursive;
-  margin: 0;
-  padding: 0;
+  margin-left: 0;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   flex: 1;
   display: flex;
   flex-direction:  column;
   justify-content: center;
-  align-items: flex-end;
-  background-color: $black;
+  align-items: center;
 }
 
 .welcome-options-read {
   text-decoration: none;
   padding-bottom: 1vw;
-  padding-right: 5vw;
   font-size: 5vw;
-  color: $light_gray;
+  color: white;
 }
 
 .welcome-options-write {
   text-decoration: none;
   padding-bottom: 1vw;
-  padding-right: 5vw;
   font-size: 5vw;
-  color: $red;
-}
-
-@media screen and (orientation: landscape) and (max-aspect-ratio: 4084/2623) {
-  .welcome {
-    background-size: auto 100%;
-  }
+  color: white;
 }
 
 @media screen and (orientation: portrait) {
     .welcome {
       flex-direction: column;
-      background-image: url('background.jpg');
-      background-size: auto 100%;
     }
     
+    .welcome-about {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+
+    .welcome-about-title {
+      font-size: 5vh;
+    }
+    
+    .welcome-about-subtitle {
+      font-size: 1.9vh;
+    }
+
     .welcome-introduction {
-      font-size: 3vh;
-      margin: 2.5%;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .welcome-introduction-text {
+      font-size: 2.2vh;
     }
 
     .welcome-options {
       flex-direction: row;
       justify-content: center;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 0;
+      margin-bottom: 15px;
     }
 
     .welcome-options-read {
-      padding-bottom: 0;
-      padding-right: 10px;
+      padding-right: 2vw;
       font-size: 5vh;
     }
 
     .welcome-options-write {
-      padding-top: 0;
-      padding-left: 10px;
-      padding-bottom: 0px;
+      padding-left: 2vw;
       font-size: 5vh;
     }
 }

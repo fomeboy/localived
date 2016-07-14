@@ -9,7 +9,7 @@ class Welcome extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
-    this.message = `Our daily rituals, social interactions, joys and disappointments take place in a village, community or neighbourhood. Life occurs locally.\nThese combined experiences shape our individual identity and that of our communities.\nStories old and new connect us to one another and tell us what it means to be human.`
+    this.message = `Our daily rituals, social interactions, joys and disappointments take place in a village, community or neighbourhood. Life occurs locally.\n\nThese combined experiences shape our individual identity and that of our communities.\n\nStories old and new connect us to one another and tell us what it means to be human.`
   }
 
   componentWillMount () {
@@ -25,7 +25,7 @@ class Welcome extends React.Component {
           <p className='welcome-about-subtitle'>Local Stories Worth Sharing</p>
         </div>
         <div className='welcome-introduction'>
-          <TextArea className='welcome-introduction-text' readonly={true} disabled={true} value={this.message}/>
+          <div contenteditable className='welcome-introduction-text'>{this.message}</div>
         </div>
         <div className='welcome-options'>
           <Link className='welcome-options-read' to='/read'>Read</Link>
