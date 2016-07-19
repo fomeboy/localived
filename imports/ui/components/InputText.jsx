@@ -11,7 +11,8 @@ class InputText extends React.Component {
     return (
       <input
         type='text'
-        name={this.props.name}
+        placeholder={this.props.placeholder}
+        className={this.props.className}
         disabled={this.props.disabled}
         readonly={this.props.readonly}
         maxlength={this.props.maxlength}
@@ -22,7 +23,8 @@ class InputText extends React.Component {
 }
 
 InputText.propTypes = {
-  name: React.PropTypes.string,
+  className: React.PropTypes.string,
+  placeholder: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   readonly: React.PropTypes.bool,
   maxlength: React.PropTypes.bool,

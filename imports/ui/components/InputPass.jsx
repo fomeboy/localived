@@ -11,7 +11,8 @@ class InputPass extends React.Component {
     return (
       <input
         type='password'
-        name={this.props.name}
+        className={this.props.className}
+        placeholder={this.props.placeholder}
         disabled={this.props.disabled}
         readonly={this.props.readonly}
         maxlength={this.props.maxlength}
@@ -22,7 +23,8 @@ class InputPass extends React.Component {
 }
 
 InputPass.propTypes = {
-  name: React.PropTypes.string,
+  className: React.PropTypes.string,
+  placeholder: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   readonly: React.PropTypes.bool,
   maxlength: React.PropTypes.bool,

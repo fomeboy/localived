@@ -140,10 +140,10 @@ class Login extends React.Component {
     return (
       <div className='main'>
         <div className='main-login'>
-          <h5>LOGIN</h5>
-          <InputText className='userInputLogin' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
-          <InputPass name='passwordInputLogin' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
-          <Button name='loginButton' value='Log in' onClick={this.handleLogInClick} disabled={false}/>
+          <p className='main-login-header'>Already registered?</p>
+          <InputText className='main-login-user' placeholder='Username' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
+          <InputPass className='main-login-password' placeholder='Password' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
+          <Button className='main-login-button' value='Login' onClick={this.handleLogInClick} disabled={false}/>
           {this.state.passError
            ? <div>
               <h2>Forgot password?</h2>
@@ -153,11 +153,11 @@ class Login extends React.Component {
           : null}
         </div>
         <div className='main-signup'>
-          <h5>SIGN UP</h5>
-          <InputText name='userInput' onBlur={this.handleUserChange} disabled={false} readonly={false}/>
-          <InputText name='emailInput' onBlur={this.handleEmailChange} disabled={false} readonly={false}/>
-          <InputPass name='passwordInput' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
-          <Button name='signUpButton' value='Sign up' onClick={this.handleSignUpClick} disabled={false}/>
+          <p className='main-signup-header'>New to localived?</p>
+          <InputText className='main-signup-email' onBlur={this.handleEmailChange} disabled={false} readonly={false}/>
+          <InputText className='main-signup-user' onBlur={this.handleUserChange} disabled={false} readonly={false}/>
+          <InputPass className='main-signup-pass' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
+          <Button className='main-signup-button' value='Sign Up' onClick={this.handleSignUpClick} disabled={false}/>
           <MessageList name='msgList' msgs={this.state.msgs}/>
         </div>
       </div>

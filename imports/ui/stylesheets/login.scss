@@ -1,3 +1,5 @@
+@import 'theme.scss';
+
 .main {
   position: absolute;
   top: 0;
@@ -12,33 +14,134 @@
 }
 
 .main-login {
-  height: 95%;
-  width: 95%;
-  margin: 2.5%;
-  font-family: 'Exo', sans-serif;
+  background-color: $green;
+  font-family: 'Chonburi', cursive;
   font-size: 4vw;
   color: white;
-  background-color: transparent;
   border: none;
   resize: none;
+  height: 95%;
+  width: 95%;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-login-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  margin-bottom: auto;
+}
+
+.main-login-user {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: thin dotted white;
+  margin: auto;
+  margin-bottom: 0;
+}
+
+.main-login-password {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: thin dotted white;
+  margin-top: 1%;
+  margin-bottom: auto;
+}
+
+.main-login-button {
+  width: 75%;
+  border: none;
+  background-color: transparent;
+  font-family: 'Chonburi', cursive;
+  font-size: 5vw;
+  color: white;
+  cursor: pointer;
+  margin-top: 1%;
+  margin-bottom: auto;
 }
 
 .main-signup {
-  height: 95%;
-  width: 95%;
-  margin: 2.5%;
-  font-family: 'Exo', sans-serif;
+  background-color: $olive;
+  font-family: 'Chonburi', cursive;
   font-size: 4vw;
-  color: #DB3C3B;
-  background-color: transparent;
+  color: white;
   border: none;
   resize: none;
+  height: 95%;
+  width: 95%;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-signup-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  margin-bottom: auto;
+}
+
+.main-signup-email {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: thin dotted white;
+  margin: auto;
+  margin-bottom: 0;
+}
+
+.main-signup-user {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: thin dotted white;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 0;
+}
+
+.main-signup-pass {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: thin dotted white;
+  margin-top: 1%;
+  margin-bottom: auto;
+}
+
+.main-signup-button {
+  width: 75%;
+  border: none;
+  background-color: transparent;
+  font-family: 'Chonburi', cursive;
+  font-size: 5vw;
+  color: white;
+  cursor: pointer;
+  margin-top: 1%;
+  margin-bottom: auto;
 }
 
 

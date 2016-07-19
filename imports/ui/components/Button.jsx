@@ -12,7 +12,7 @@ class Button extends React.Component {
       <input
         type='button'
         value={this.props.value}
-        name={this.props.name}
+        className={this.props.className}
         disabled={this.props.disabled}
         onClick={this.props.onClick}
       />
@@ -21,7 +21,7 @@ class Button extends React.Component {
 }
 
 Button.propTypes = {
-  name: React.PropTypes.string,
+  className: React.PropTypes.string,
   value: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   onClick: React.PropTypes.func.isRequired
