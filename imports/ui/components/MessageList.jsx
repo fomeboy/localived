@@ -9,7 +9,7 @@ class MessageList extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className={this.props.className}>
       {this.props.msgs.map((msg, i) => { return <div key={i}><p>{msg}</p></div> })}
       </div>
     )
@@ -17,7 +17,7 @@ class MessageList extends React.Component {
 }
 
 MessageList.propTypes = {
-  name: React.PropTypes.string,
+  className: React.PropTypes.string,
   msgs: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
 }
 

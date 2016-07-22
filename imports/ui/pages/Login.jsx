@@ -29,8 +29,9 @@ class Login extends React.Component {
   }
 
   componentWillMount () {
-    this.setState({msgs: [], passError: false})
-    this.msgs = []
+    this.setState({msgs_login: [], msgs_signup: [], passError: false})
+    this.msgs_login = []
+    this.msgs_signup = []
     this.loginAttempt = 0
   }
 
@@ -43,22 +44,22 @@ class Login extends React.Component {
   }
 
   handleLogInClick () {
-    this.msgs = []
+    this.msgs_login = []
     this.loginAttempt = this.loginAttempt + 1
-    this.setState({msgs: []})
-    required(this.state.userName, this.msgs, 'Username')
-    required(this.state.password, this.msgs, 'Password')
+    this.setState({msgs_login: []})
+    required(this.state.userName, this.msgs_login, 'Username')
+    required(this.state.password, this.msgs_login, 'Password')
 
-    if (this.msgs.length > 0) {
-      this.setState({msgs: this.msgs})
+    if (this.msgs_login.length > 0) {
+      this.setState({msgs_login: this.msgs_login})
     } else {
       Meteor.loginWithPassword({username: this.state.userName},
                              this.state.password,
                              (err) => {
                                if (err) {
-                                 this.setState({msgs: this.state.msgs.concat(err.reason)})
+                                 this.setState({msgs_login: this.state.msgs_login.concat(err.reason)})
                                  if (/password/g.test(err.reason)) {
-                                   if (this.loginAttempt === 3) {
+                                   if (this.loginAttempt >= 4) {
                                      this.setState({passError: true})
                                    }
                                  }
@@ -75,20 +76,20 @@ class Login extends React.Component {
   }
 
   handleRestorePassClick () {
-    this.msgs = []
-    this.setState({msgs: []})
-    required(this.state.emailPassInput, this.msgs, 'Email')
+    this.msgs_login = []
+    this.setState({msgs_login: []})
+    required(this.state.emailPassInput, this.msgs_login, 'Email')
 
-    if (this.msgs.length > 0) {
-      this.setState({msgs: this.msgs})
+    if (this.msgs_login.length > 0) {
+      this.setState({msgs_login: this.msgs_login})
     } else {
       Accounts.forgotPassword({email: this.state.emailPassInput},
                               (err) => {
                                 if (err) {
-                                  this.setState({msgs: this.state.msgs.concat(err.reason)})
+                                  this.setState({msgs_login: this.state.msgs_login.concat(err.reason)})
                                 } else {
                                   this.setState({passError: false})
-                                  this.setState({msgs: this.state.msgs.concat('Password reset instructions were sento to your email')})
+                                  this.setState({msgs_login: this.state.msgs_login.concat('Please check your email for password reset instructions')})
                                 }
                               }
                              )
@@ -108,15 +109,15 @@ class Login extends React.Component {
   }
 
   handleSignUpClick () {
-    this.msgs = []
-    this.setState({msgs: [], passError: false})
-    required(this.state.userNameSign, this.msgs, 'Username')
-    required(this.state.email, this.msgs, 'Email')
-    email(this.state.email, this.msgs, 'Email')
-    required(this.state.passwordSign, this.msgs, 'Password')
+    this.msgs_signup = []
+    this.setState({msgs_signup: [], passError: false})
+    required(this.state.email, this.msgs_signup, 'Email')
+    email(this.state.email, this.msgs_signup, 'Email')
+    required(this.state.userNameSign, this.msgs_signup, 'Username')
+    required(this.state.passwordSign, this.msgs_signup, 'Password')
 
-    if (this.msgs.length > 0) {
-      this.setState({msgs: this.msgs})
+    if (this.msgs_signup.length > 0) {
+      this.setState({msgs_signup: this.msgs_signup})
     } else {
       Accounts.createUser({username: this.state.userNameSign,
                            email: this.state.email,
@@ -127,9 +128,9 @@ class Login extends React.Component {
                            }},
                            (err) => {
                              if (err) {
-                               this.setState({ msgs: this.state.msgs.concat(err.reason) })
+                               this.setState({ msgs_signup: this.state.msgs_signup.concat(err.reason) })
                              } else {
-                               this.setState({ msgs: this.state.msgs.concat('User ' + this.state.userNameSign + ' created!') })
+                               this.setState({ msgs_signup: this.state.msgs_signup.concat('User ' + this.state.userNameSign + ' created!') })
                              }
                            }
                          )
@@ -143,22 +144,23 @@ class Login extends React.Component {
           <p className='main-login-header'>Already registered?</p>
           <InputText className='main-login-user' placeholder='Username' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
           <InputPass className='main-login-password' placeholder='Password' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
-          <Button className='main-login-button' value='Login' onClick={this.handleLogInClick} disabled={false}/>
           {this.state.passError
-           ? <div>
-              <h2>Forgot password?</h2>
-              <InputText name='emailPassInput' onBlur={this.handleEmailPassChange} disabled={false} readonly={false}/>
-              <Button name='restorePassButton' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/>
+           ? <div className='main-login-restore'>
+              <p className='main-login-restore-header'>Forgot password?</p>
+              <InputText className='main-login-restore-email' placeholder='Type your email' onBlur={this.handleEmailPassChange} disabled={false} readonly={false}/>
+              <Button className='main-login-restore-button' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/>
             </div>
-          : null}
+            : null}
+          <MessageList className='main-login-message' msgs={this.state.msgs_login}/>
+          <Button className='main-login-button' value='Login' onClick={this.handleLogInClick} disabled={false}/>
         </div>
         <div className='main-signup'>
           <p className='main-signup-header'>New to localived?</p>
-          <InputText className='main-signup-email' onBlur={this.handleEmailChange} disabled={false} readonly={false}/>
-          <InputText className='main-signup-user' onBlur={this.handleUserChange} disabled={false} readonly={false}/>
-          <InputPass className='main-signup-pass' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
+          <InputText className='main-signup-email' placeholder='Email' onBlur={this.handleEmailChange} disabled={false} readonly={false}/>
+          <InputText className='main-signup-user' placeholder='Username' onBlur={this.handleUserChange} disabled={false} readonly={false}/>
+          <InputPass className='main-signup-pass' placeholder='Password' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
+          <MessageList className='main-signup-message' msgs={this.state.msgs_signup}/>
           <Button className='main-signup-button' value='Sign Up' onClick={this.handleSignUpClick} disabled={false}/>
-          <MessageList name='msgList' msgs={this.state.msgs}/>
         </div>
       </div>
     )
