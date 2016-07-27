@@ -1,0 +1,107 @@
+@import 'theme.scss';
+
+.reset {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.reset-pass {
+  background-color: $green;
+  width: 95%;
+  height: 95%;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reset-pass-header {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+}
+
+.reset-pass-input {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: thin dotted white;
+  margin: auto;
+  margin-bottom: 0;
+}
+
+.reset-pass-input2 {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: thin dotted white;
+  margin: 1%;
+  margin-bottom: 0;
+}
+
+.reset-pass-message {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1vw;
+  color: $olive;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+.reset-pass-button {
+  width: 75%;
+  border: none;
+  background-color: transparent;
+  font-family: 'Chonburi', cursive;
+  font-size: 5vw;
+  color: white;
+  cursor: pointer;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+@media screen and (orientation: portrait) {
+  .reset-pass {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .reset-pass-header {
+    font-size: 1.8vh;
+  }
+
+  .reset-pass-input {
+    font-size: 1.8vh;
+  }
+  
+  .reset-pass-input2 {
+    font-size: 1.8vh;
+  }
+
+  .reset-pass-message {
+    font-size: 1vh;
+  }
+
+  .reset-pass-button {
+    font-size: 5vh;
+  }
+}

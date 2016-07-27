@@ -1,3 +1,4 @@
+import '../stylesheets/reset.scss'
 import { Meteor } from 'meteor/meteor'
 import React from 'react'
 import InputText from '../components/InputText.jsx'
@@ -56,12 +57,14 @@ class ResetPassword extends React.Component {
 
   render () {
     return (
-      <div>
-        <h5>Reset Password</h5>
-        <InputPass name='passwordInput' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
-        <InputPass name='passwordInput2' onBlur={this.handlePasswordChange2} disabled={false} readonly={false}/>
-        <Button name='resetButton' value='Reset password' onClick={this.handleResetClick} disabled={false}/>
-        <MessageList name='msgList' msgs={this.state.msgs}/>
+      <div className='reset'>
+        <div className='reset-pass'>
+          <p className='reset-pass-header'>Password reset requested?</p>
+          <InputPass className='reset-pass-input' placeholder='Type new password' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
+          <InputPass className='reset-pass-input2' placeholder='Confirm new password' onBlur={this.handlePasswordChange2} disabled={false} readonly={false}/>
+          <MessageList className='reset-pass-message' msgs={this.state.msgs}/>
+          <Button className='reset-pass-button' value='Reset password' onClick={this.handleResetClick} disabled={false}/>
+        </div>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 @import 'theme.scss';
 
-.main {
+.registration {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-.main-login {
+.registration-login {
   background-color: $green;
   font-family: 'Chonburi', cursive;
   font-size: 4vw;
@@ -33,13 +33,13 @@
   justify-content: center;
 }
 
-.main-login-header {
+.registration-login-header {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.8vw;
   margin-bottom: auto;
 }
 
-.main-login-user {
+.registration-login-user {
   width: 75%;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
@@ -50,7 +50,7 @@
   margin-bottom: 0;
 }
 
-.main-login-password {
+.registration-login-password {
   width: 75%;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
@@ -61,7 +61,7 @@
   margin-bottom: 0;
 }
 
-.main-login-message {
+.registration-login-message {
   width: 75%;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
@@ -71,7 +71,7 @@
   margin-bottom: auto;
 }
 
-.main-login-restore {
+.registration-login-restore {
   width: 75%;
   margin-top: 0;
   margin-bottom: 1%;
@@ -81,13 +81,13 @@
   justify-content: space-between;
 }
 
-.main-login-restore-header {
+.registration-login-restore-header {
   font-family: 'Montserrat', sans-serif;
   font-size: 1vw;
   color: white;
 }
 
-.main-login-restore-email {
+.registration-login-restore-email {
   width: 40%;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
@@ -97,7 +97,7 @@
   text-align: center;
 }
 
-.main-login-restore-button {
+.registration-login-restore-button {
   border: none;
   background-color: transparent;
   font-family: 'Chonburi', cursive;
@@ -106,7 +106,7 @@
   cursor: pointer;
 }
 
-.main-login-button {
+.registration-login-button {
   width: 75%;
   border: none;
   background-color: transparent;
@@ -118,7 +118,7 @@
   margin-bottom: auto;
 }
 
-.main-signup {
+.registration-signup {
   background-color: $olive;
   font-family: 'Chonburi', cursive;
   font-size: 4vw;
@@ -137,13 +137,13 @@
   justify-content: center;
 }
 
-.main-signup-header {
+.registration-signup-header {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.8vw;
   margin-bottom: auto;
 }
 
-.main-signup-email {
+.registration-signup-email {
   width: 75%;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
@@ -154,7 +154,7 @@
   margin-bottom: 0;
 }
 
-.main-signup-user {
+.registration-signup-user {
   width: 75%;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
@@ -166,7 +166,7 @@
   margin-bottom: 0;
 }
 
-.main-signup-pass {
+.registration-signup-pass {
   width: 75%;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
@@ -177,7 +177,7 @@
   margin-bottom: 0;
 }
 
-.main-signup-message {
+.registration-signup-message {
   width: 75%;
   background-color: transparent;
   font-family: 'Montserrat', sans-serif;
@@ -187,7 +187,7 @@
   margin-bottom: auto;
 }
 
-.main-signup-button {
+.registration-signup-button {
   width: 75%;
   border: none;
   background-color: transparent;
@@ -200,70 +200,77 @@
 }
 
 @media screen and (orientation: portrait) {
-  .main {
+  .registration {
     flex-direction: column;
   }
 
-  .main-login {
+  .registration-login {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 15px;
     margin-bottom: 15px;
   }
   
-  .main-login-header {
+  .registration-login-header {
     font-size: 1.8vh;
   }
 
-  .main-login-user {
+  .registration-login-user {
     font-size: 1.8vh;
   }
 
-  .main-login-password {
+  .registration-login-password {
     font-size: 1.8vh;
   }
 
-  .main-login-restore-header {
+  .registration-login-restore-header {
     font-size: 1vh;
   }
 
-  .main-login-restore-email {
+  .registration-login-restore-email {
     font-size: 1vh;
   }
 
-  .main-login-restore-button {
+  .registration-login-restore-button {
     font-size: 1vh;
   }
 
-  .main-login-message {
+  .registration-login-message {
     font-size: 1vh;
   }
 
-  .main-signup {
+  .registration-login-button {
+    font-size: 5vh;
+  }
+
+  .registration-signup {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 0;
     margin-bottom: 15px;
   }
 
-  .main-signup-header {
+  .registration-signup-header {
     font-size: 1.8vh;
   }
 
-  .main-signup-user {
+  .registration-signup-user {
     font-size: 1.8vh;
   }
 
-  .main-signup-email {
+  .registration-signup-email {
     font-size: 1.8vh;
   }
 
-  .main-signup-pass {
+  .registration-signup-pass {
     font-size: 1.8vh;
   }
 
-  .main-signup-message {
+  .registration-signup-message {
     font-size: 1vh;
   }
-
+  
+  .registration-signup-button {
+    font-size: 5vh;
+  }
 }

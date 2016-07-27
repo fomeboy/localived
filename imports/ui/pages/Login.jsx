@@ -139,28 +139,28 @@ class Login extends React.Component {
 
   render () {
     return (
-      <div className='main'>
-        <div className='main-login'>
-          <p className='main-login-header'>Already registered?</p>
-          <InputText className='main-login-user' placeholder='Username' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
-          <InputPass className='main-login-password' placeholder='Password' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
+      <div className='registration'>
+        <div className='registration-login'>
+          <p className='registration-login-header'>Already registered?</p>
+          <InputText className='registration-login-user' placeholder='Username' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
+          <InputPass className='registration-login-password' placeholder='Password' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
           {this.state.passError
-           ? <div className='main-login-restore'>
-              <p className='main-login-restore-header'>Forgot password?</p>
-              <InputText className='main-login-restore-email' placeholder='Type your email' onBlur={this.handleEmailPassChange} disabled={false} readonly={false}/>
-              <Button className='main-login-restore-button' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/>
+           ? <div className='registration-login-restore'>
+              <p className='registration-login-restore-header'>Forgot password?</p>
+              <InputText className='registration-login-restore-email' placeholder='Type your email' onBlur={this.handleEmailPassChange} disabled={false} readonly={false}/>
+              <Button className='registration-login-restore-button' value='Restore password' onClick={this.handleRestorePassClick} disabled={false}/>
             </div>
             : null}
-          <MessageList className='main-login-message' msgs={this.state.msgs_login}/>
-          <Button className='main-login-button' value='Login' onClick={this.handleLogInClick} disabled={false}/>
+          <MessageList className='registration-login-message' msgs={this.state.msgs_login}/>
+          <Button className='registration-login-button' value='Login' onClick={this.handleLogInClick} disabled={false}/>
         </div>
-        <div className='main-signup'>
-          <p className='main-signup-header'>New to localived?</p>
-          <InputText className='main-signup-email' placeholder='Email' onBlur={this.handleEmailChange} disabled={false} readonly={false}/>
-          <InputText className='main-signup-user' placeholder='Username' onBlur={this.handleUserChange} disabled={false} readonly={false}/>
-          <InputPass className='main-signup-pass' placeholder='Password' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
-          <MessageList className='main-signup-message' msgs={this.state.msgs_signup}/>
-          <Button className='main-signup-button' value='Sign Up' onClick={this.handleSignUpClick} disabled={false}/>
+        <div className='registration-signup'>
+          <p className='registration-signup-header'>New to localived?</p>
+          <InputText className='registration-signup-email' placeholder='Email' onBlur={this.handleEmailChange} disabled={false} readonly={false}/>
+          <InputText className='registration-signup-user' placeholder='Username' onBlur={this.handleUserChange} disabled={false} readonly={false}/>
+          <InputPass className='registration-signup-pass' placeholder='Password' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
+          <MessageList className='registration-signup-message' msgs={this.state.msgs_signup}/>
+          <Button className='registration-signup-button' value='Sign Up' onClick={this.handleSignUpClick} disabled={false}/>
         </div>
       </div>
     )
