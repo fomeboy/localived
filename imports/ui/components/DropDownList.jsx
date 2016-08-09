@@ -9,7 +9,8 @@ class DropDownList extends React.Component {
 
   render () {
     return (
-      <select name={this.props.name} defaultValue={this.props.defaultValue} onChange={this.props.onChange}>
+      <select className={this.props.className} defaultValue={this.props.placeholder} onChange={this.props.onChange}>
+        <option value={this.props.placeholder} disabled hidden>{this.props.placeholder}</option>
         {this.props.options.map((option, i) => {
           return <option key={i} value={option.value}>{option.value}</option>
         })}
@@ -19,7 +20,7 @@ class DropDownList extends React.Component {
 }
 
 DropDownList.propTypes = {
-  name: React.PropTypes.string,
+  className: React.PropTypes.string,
   onChange: React.PropTypes.func,
   options: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 }

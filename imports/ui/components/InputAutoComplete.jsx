@@ -50,7 +50,8 @@ class InputAutoComplete extends React.Component {
       placeholder: this.props.placeholder,
       value,
       onChange: this.onChange,
-      onBlur: this.props.onBlur
+      onBlur: this.props.onBlur,
+      className: this.props.className
     }
 
     return (
@@ -66,7 +67,7 @@ class InputAutoComplete extends React.Component {
 }
 
 InputAutoComplete.propTypes = {
-  name: React.PropTypes.string,
+  className: React.PropTypes.string,
   onBlur: React.PropTypes.func,
   options: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
   placeholder: React.PropTypes.string
