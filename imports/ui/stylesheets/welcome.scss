@@ -15,7 +15,7 @@
 }
 
 .welcome-about {
-  background-color: $green;
+  background-color: $panel-background-color;
   height: 95%;
   width: 95%;
   margin-left: 15px;
@@ -30,23 +30,23 @@
 }
 
 .welcome-about-title {
-  color: white;
-  font-family:'Chonburi', cursive;
-  font-size: 5vw;
+  color: $panel-title-color;
+  font-family:$title-font;
+  font-size: $title-size-h;
   display: block;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .welcome-about-subtitle {
-  color: white;
-  font-family:'Montserrat', sans-serif;
-  font-size: 1.8vw;
+  color: $panel-subtitle-color;
+  font-family: $header-font;
+  font-size: $subtitle-size-h;
   margin-top: 0;
 }
 
 .welcome-introduction {
-  background-color:$green;
+  background-color:$panel-background-color;
   height: 95%;
   width: 95%;
   margin-left: 0;
@@ -64,8 +64,8 @@
   color: white;
   -webkit-opacity: 1; 
   -webkit-text-fill-color: white; 
-  font-family: 'Josefin Slab', serif;
-  font-size: 1.6vw;
+  font-family: $text-font;
+  font-size: $introduction-size-h;
   padding: 10%;
   text-align: justify;
   border: none;
@@ -73,10 +73,10 @@
 }
 
 .welcome-options {
-  background-color: $olive;
+  background-color: $panel-background-color;
   height: 95%;
   width: 95%;
-  font-family:'Chonburi', cursive;
+  font-family:$title-font;
   margin-left: 0;
   margin-right: 15px;
   margin-top: 10px;
@@ -91,15 +91,15 @@
 .welcome-options-read {
   text-decoration: none;
   padding-bottom: 1vw;
-  font-size: 5vw;
-  color: white;
+  font-size: $title-size-h;
+  color: $panel-options-color;
 }
 
 .welcome-options-write {
   text-decoration: none;
   padding-bottom: 1vw;
-  font-size: 5vw;
-  color: white;
+  font-size: $title-size-h;
+  color: $panel-options-color;
 }
 
 @media screen and (orientation: portrait) {
@@ -115,11 +115,11 @@
     }
 
     .welcome-about-title {
-      font-size: 5vh;
+      font-size: $title-size-v;
     }
     
     .welcome-about-subtitle {
-      font-size: 1.9vh;
+      font-size: $subtitle-size-v;
     }
 
     .welcome-introduction {
@@ -133,7 +133,7 @@
     }
     
     .welcome-introduction-text {
-      font-size: 2.2vh;
+      font-size: $introduction-size-v;
     }
 
     .welcome-options {
@@ -147,12 +147,12 @@
 
     .welcome-options-read {
       padding-right: 2vw;
-      font-size: 5vh;
+      font-size: $title-size-v;
     }
 
     .welcome-options-write {
       padding-left: 2vw;
-      font-size: 5vh;
+      font-size: $title-size-v;
     }
 }
 

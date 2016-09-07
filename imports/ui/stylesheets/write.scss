@@ -1,0 +1,256 @@
+@import 'theme.scss';
+
+.write {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.write-context {
+  background-color: $green;
+  font-family: 'Chonburi', cursive;
+  font-size: 4vw;
+  color: white;
+  border: none;
+  resize: none;
+  height: 95%;
+  width: 95%;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.write-context-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  margin-bottom: auto;
+}
+
+.write-context-language {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  padding-left: 2px;
+  color: white;
+  border: thin dotted white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  margin-bottom: 1%;
+}
+
+.write-context-country {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  padding-left: 2px;
+  color: white;
+  border: thin dotted white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  margin-bottom: 1%;
+}
+
+.write-context-date {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  padding-left: 2px;
+  color: white;
+  border: thin dotted white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  margin-bottom: 1%;
+}
+
+.write-context-location {
+  width: 100%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: none;
+}
+.react-autosuggest__container {
+  width: 75%;
+  max-height: 40%;
+  overflow: scroll;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  color: white;
+  border: thin dotted white;
+  margin-bottom: auto;
+}
+
+.react-autosuggest__suggestions-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.react-autosuggest__suggestion {
+  color: $olive;
+}
+
+.react-autosuggest__suggestion--focused {
+  background-color: #fff;
+}
+
+.write-story{
+  background-color: $olive;
+  font-family: 'Chonburi', cursive;
+  font-size: 4vw;
+  color: white;
+  border: none;
+  resize: none;
+  height: 95%;
+  width: 95%;
+  //margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.write-story-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  margin-bottom: auto;
+}
+
+.write-story-title {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8vw;
+  padding-left: 2px;
+  color: white;
+  border: thin dotted white;
+  appearance: none;
+  margin-bottom: 1%;
+}
+
+.write-story-story {
+  width: 75%;
+  height: 50%;
+  background-color: transparent;
+  font-family: 'Josefin Slab', serif;
+  font-size: 1.5vw;
+  padding-left: 2px;
+  color: white;
+  border: thin dotted white;
+  appearance: none;
+  margin-bottom: 5%;
+}
+
+.write-story-messages {
+  width: 75%;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1vw;
+  color: $green;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+.write-story-button {
+  border: none;
+  background-color: transparent;
+  font-family: 'Chonburi', cursive;
+  font-size: 5vw;
+  color: white;
+  cursor: pointer;
+  margin-bottom: auto;
+}
+
+@media screen and (orientation: portrait) {
+  .write {
+    flex-direction: column;
+  }
+
+  .write-context {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .write-context-header {
+    font-size: 1.8vh;
+  }
+
+  .write-context-language {
+    font-size: 1.8vh;
+  }
+
+  .write-context-country {
+    font-size: 1.8vh;
+  }
+
+  .write-context-date{
+    font-size: 1.8vh;
+  }
+
+  .write-context-location{
+    font-size: 1.8vh;
+  }
+
+  .react-autosuggest__container {
+    max-height: 20%;
+  }
+
+  .write-story {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .write-story-header {
+    font-size: 1.8vh;
+  }
+
+  .write-story-title {
+    font-size: 1.8vh;
+  }
+
+  .write-story-story {
+    font-size: 1.5vh;
+  }
+
+  .write-story-messages {
+    font-size: 1vh;
+  }
+
+  .write-storybutton {
+    font-size: 5vh;
+  }
+}

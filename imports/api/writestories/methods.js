@@ -30,15 +30,12 @@ export const getDates = new ValidatedMethod({
 export const publishStory = new ValidatedMethod({
   name: 'publishStory',
   validate: StoriesSchema.validator(),
-  run ({creationDate, language, country, location, date, title, story}) {
+  run ({user, creationDate, language, country, location, date, title, story}) {
     // if (!this.userId) {
     //   throw new Meteor.Error('you must log in to be able to publish')
     // }
-
     Stories.insert({
-      // user: this.userId,
-      user: '12345ssss',
-      creationDate: creationDate,
+      user: user,
       language: language,
       country: country,
       location: location,

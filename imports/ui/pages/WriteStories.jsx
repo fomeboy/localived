@@ -1,3 +1,4 @@
+import '../stylesheets/write.scss'
 import { Meteor } from 'meteor/meteor'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -6,6 +7,8 @@ import InputAutoComplete from '../components/InputAutoComplete.jsx'
 import InputText from '../components/InputText.jsx'
 import TextArea from '../components/TextArea.jsx'
 import Button from '../components/Button.jsx'
+import MessageList from '../components/MessageList.jsx'
+import { required } from '../../api/validators.js'
 import { Session } from 'meteor/session'
 import { browserHistory } from 'react-router'
 import { publishStory } from '../../api/writestories/methods.js'
@@ -25,9 +28,12 @@ class WriteStories extends React.Component {
   }
 
   componentWillMount () {
+    this.setState({msgs_submit: []})
+    this.msgs_submit = []
     if (!Meteor.userId()) {
       browserHistory.replace('/login')
     }
+    console.log('USER:' + Meteor.userId())
   }
 
   handleLanguageChange (e) {
@@ -63,33 +69,52 @@ class WriteStories extends React.Component {
   }
 
   handleButtonClick (e) {
-    publishStory.call({
-      user: 'ajshssh5', // for test only
-      creationDate: new Date(),
-      language: this.state.language,
-      country: this.state.country,
-      location: this.state.location,
-      date: this.state.date,
-      title: this.state.title,
-      story: this.state.story
-    }, (err, res) => {
-      if (err) {
-        console.log('Error submiting story: ' + err)
-      }
-    })
+    this.msgs_submit = []
+    this.setState({msgs_submit: []})
+    required(this.state.language, this.msgs_submit, 'Language')
+    required(this.state.country, this.msgs_submit, 'Country')
+    required(this.state.date, this.msgs_submit, 'Date')
+    required(this.state.location, this.msgs_submit, 'Location')
+    required(this.state.title, this.msgs_submit, 'Title')
+    required(this.state.story, this.msgs_submit, 'Story')
+
+    if (this.msgs_submit.length > 0) {
+      this.setState({msgs_submit: this.msgs_submit})
+    } else {
+      publishStory.call({
+        user: Meteor.userId(),
+        creationDate: new Date(),
+        language: this.state.language,
+        country: this.state.country,
+        location: this.state.location,
+        date: this.state.date,
+        title: this.state.title,
+        story: this.state.story
+      }, (err, res) => {
+        if (err) {
+          console.log('Error submiting story: ' + err)
+        }
+      })
+    }
   }
 
   render () {
     return (
-      <div>
-        <h5>Write Stories</h5>
-        <DropDownList name='languagesList' defaultValue={this.props.selectedLanguage} options={this.props.languages} onChange={this.handleLanguageChange}/>
-        <DropDownList name='countryList' defaultValue={this.props.selectedCountry} options={this.props.countries} onChange={this.handleCountryChange}/>
-        <DropDownList name='dateList' defaultValue={this.props.selectedDate} options={this.props.dates} onChange={this.handleDateChange}/>
-        <InputAutoComplete ref='inputLoc' name='locationsInput' placeholder='Type location' options={this.props.locations} onBlur={this.handleLocationChange}/>
-        <InputText name='titleInput' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
-        <TextArea name='storyTextArea' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
-        <Button name='submitButton' value='Submit' onClick={this.handleButtonClick} disabled={false}/>
+      <div className='write'>
+        <div className='write-context'>
+            <p className='write-context-header'>Context</p>
+            <DropDownList className='write-context-language' placeholder=' ▼  Select language ' defaultValue={this.props.selectedLanguage} options={this.props.languages} onChange={this.handleLanguageChange}/>
+            <DropDownList className='write-context-country' placeholder=' ▼  Select country ' defaultValue={this.props.selectedCountry} options={this.props.countries} onChange={this.handleCountryChange}/>
+            <DropDownList className='write-context-date' placeholder=' ▼  Select date ' defaultValue={this.props.selectedDate} options={this.props.dates} onChange={this.handleDateChange}/>
+            <InputAutoComplete ref='inputLoc' className='write-context-location' placeholder='Type location' options={this.props.locations} onBlur={this.handleLocationChange}/>
+        </div>
+        <div className='write-story'>
+            <p className='write-story-header'>Story</p>
+            <InputText className='write-story-title' placeholder='Title' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
+            <TextArea className='write-story-story' placeholder='Write your story' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
+            <MessageList className='write-story-messages' msgs={this.state.msgs_submit}/>
+            <Button className='write-story-button' value='Submit' onClick={this.handleButtonClick} disabled={false}/>
+        </div>
       </div>
     )
   }

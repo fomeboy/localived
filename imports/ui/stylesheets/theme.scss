@@ -14,9 +14,29 @@ body {
 }
 
 /* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Chonburi);
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url(https://fonts.googleapis.com/css?family=Josefin+Slab:300);
+@import url(https://fonts.googleapis.com/css?family=Fugaz+One);
+@import url(https://fonts.googleapis.com/css?family=Bungee+Hairline);
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+$title-font: 'Fugaz One', cursive;
+$header-font: 'Bungee Hairline', cursive;
+$text-font: 'Exo', sans-serif;
+
+/* Text size */
+$title-size-h: 4vw; 
+$title-size-v: 4vh; 
+$subtitle-size-h: 1.6vw; 
+$subtitle-size-v: 2vh; 
+$introduction-size-h: 1.4vw; 
+$introduction-size-v: 1.8vh; 
+
+/* Panel styling */
+$panel-title-color: #DFDFDF;
+$panel-subtitle-color: #000000;
+$panel-background-color: #939393;
+$panel-options-color: #50646E;
+
+/* Mixins */
 
 /* Input placeholder color */
 ::-webkit-input-placeholder {
