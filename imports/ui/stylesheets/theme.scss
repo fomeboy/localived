@@ -14,42 +14,46 @@ body {
 }
 
 /* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Fugaz+One);
-@import url(https://fonts.googleapis.com/css?family=Bungee+Hairline);
-@import url(https://fonts.googleapis.com/css?family=Exo:100);
+@import url(https://fonts.googleapis.com/css?family=Days+One);
+@import url(https://fonts.googleapis.com/css?family=Kanit);
+@import url(https://fonts.googleapis.com/css?family=Athiti);
 
-$title-font: 'Fugaz One', cursive;
-$header-font: 'Bungee Hairline', cursive;
-$text-font: 'Exo', sans-serif;
+$title-font: 'Days One', sans-serif;
+$header-font: 'Prompt', sans-serif;
+$text-font: 'Athiti', sans-serif;
 
 /* Text size */
-$title-size-h: 4vw; 
-$title-size-v: 4vh; 
-$subtitle-size-h: 1.6vw; 
+$title-size-h: 3vw; 
+$title-size-v: 3.5vh; 
+$subtitle-size-h: 1.5vw; 
+$header-size-h: 3vw; 
+$header-size-v: 2vh; 
 $subtitle-size-v: 2vh; 
 $introduction-size-h: 1.4vw; 
 $introduction-size-v: 1.8vh; 
+$message-size-h: 1vw; 
+$message-size-v: 1.6vh; 
 
 /* Panel styling */
-$panel-title-color: #DFDFDF;
-$panel-subtitle-color: #000000;
-$panel-background-color: #939393;
+$panel-title-color: #FFFFFF;
+$panel-subtitle-color: #FFFFFF;
+$panel-background-color: #A8A8A8;
 $panel-options-color: #50646E;
 
 /* Mixins */
 
 /* Input placeholder color */
 ::-webkit-input-placeholder {
-   color: $light-grey;
+   color: $panel-title-color;
 }
 :-moz-placeholder { /* Firefox 18- */
-   color: $light-grey;  
+   color: $panel-title-color;  
 }
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: $light-grey;  
+   color: $panel-title-color;  
 }
 :-ms-input-placeholder {  
-   color: $light-grey;  
+   color: $panel-title-color;  
 }
 
 /* Selected item border */

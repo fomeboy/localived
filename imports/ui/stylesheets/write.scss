@@ -14,10 +14,7 @@
 }
 
 .write-context {
-  background-color: $green;
-  font-family: 'Chonburi', cursive;
-  font-size: 4vw;
-  color: white;
+  background-color: $panel-background_color;
   border: none;
   resize: none;
   height: 95%;
@@ -34,18 +31,19 @@
 }
 
 .write-context-header {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8vw;
+  font-family: $text-font;
+  font-size: $header-size-h;
+  color: $panel-title-color;
   margin-bottom: auto;
 }
 
 .write-context-language {
   width: 75%;
-  background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8vw;
+  background-color: $panel-background-color;
+  font-family: $text-font;
+  font-size: $subtitle-size-h;
   padding-left: 2px;
-  color: white;
+  color: $panel-title-color;
   border: thin dotted white;
   appearance: none;
   -webkit-appearance: none;
@@ -56,11 +54,11 @@
 
 .write-context-country {
   width: 75%;
-  background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8vw;
+  background-color: $panel-background-color;
+  font-family: $text-font;
+  font-size: $subtitle-size-h;
   padding-left: 2px;
-  color: white;
+  color: $panel-title-color;
   border: thin dotted white;
   appearance: none;
   -webkit-appearance: none;
@@ -71,11 +69,11 @@
 
 .write-context-date {
   width: 75%;
-  background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8vw;
+  background-color: $panel-background-color;
+  font-family: $text-font;
+  font-size: $subtitle-size-h;
   padding-left: 2px;
-  color: white;
+  color: $panel-title-color;
   border: thin dotted white;
   appearance: none;
   -webkit-appearance: none;
@@ -87,24 +85,21 @@
 .write-context-location {
   width: 100%;
   background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8vw;
-  color: white;
+  font-family: $text-font;
+  font-size: $subtitle-size-h;
+  color: $panel-title-color;
   border: none;
 }
 .react-autosuggest__container {
   width: 75%;
   max-height: 40%;
   overflow: scroll;
-  background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8vw;
-  color: white;
   border: thin dotted white;
   margin-bottom: auto;
 }
 
 .react-autosuggest__suggestions-container {
+  font-family: $text-font;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -113,23 +108,20 @@
 }
 
 .react-autosuggest__suggestion {
-  color: $olive;
+  color: $panel-title-color;
 }
 
 .react-autosuggest__suggestion--focused {
-  background-color: #fff;
+  background-color: $panel-options-color;
 }
 
 .write-story{
-  background-color: $olive;
-  font-family: 'Chonburi', cursive;
-  font-size: 4vw;
-  color: white;
+  background-color: $panel-background_color;
+  color: $panel-title-color;
   border: none;
   resize: none;
   height: 95%;
   width: 95%;
-  //margin-left: 15px;
   margin-right: 15px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -141,18 +133,18 @@
 }
 
 .write-story-header {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8vw;
+  font-family: $text-font;
+  font-size: $header-size-h;
   margin-bottom: auto;
 }
 
 .write-story-title {
   width: 75%;
   background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8vw;
+  font-family: $text-font;
+  font-size: $subtitle-size-h;
   padding-left: 2px;
-  color: white;
+  color: $panel-title-color;
   border: thin dotted white;
   appearance: none;
   margin-bottom: 1%;
@@ -162,31 +154,32 @@
   width: 75%;
   height: 50%;
   background-color: transparent;
-  font-family: 'Josefin Slab', serif;
-  font-size: 1.5vw;
+  font-family: $text-font;
+  font-size: $introduction-size-h;
   padding-left: 2px;
-  color: white;
+  color: $panel-title-color;
   border: thin dotted white;
   appearance: none;
-  margin-bottom: 5%;
+  margin-bottom: 0;
 }
 
 .write-story-messages {
   width: 75%;
   background-color: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1vw;
-  color: $green;
+  font-family: $text-font;
+  font-size: $message-size-h;
+  font-weight: bold;
+  color: red;
   margin-top: 0;
   margin-bottom: auto;
 }
 
 .write-story-button {
   border: none;
-  background-color: transparent;
-  font-family: 'Chonburi', cursive;
-  font-size: 5vw;
-  color: white;
+  background-color: $panel-background-color;
+  font-family: $title-font;
+  font-size: $title-size-h;
+  color: $panel-options-color;
   cursor: pointer;
   margin-bottom: auto;
 }

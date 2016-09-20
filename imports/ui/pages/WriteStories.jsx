@@ -113,7 +113,7 @@ class WriteStories extends React.Component {
             <InputText className='write-story-title' placeholder='Title' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
             <TextArea className='write-story-story' placeholder='Write your story' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
             <MessageList className='write-story-messages' msgs={this.state.msgs_submit}/>
-            <Button className='write-story-button' value='Submit' onClick={this.handleButtonClick} disabled={false}/>
+            <Button className='write-story-button' value='SUBMIT' onClick={this.handleButtonClick} disabled={false}/>
         </div>
       </div>
     )

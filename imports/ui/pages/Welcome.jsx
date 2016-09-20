@@ -17,7 +17,7 @@ class Welcome extends React.Component {
   }
 
   render () {
-    let shareLink = Meteor.userId() ? <Link className='welcome-options-write' to='/write'>Share</Link> : <Link className='welcome-options-write' to='/login'>SHARE</Link>
+    let shareLink = Meteor.userId() ? <Link className='welcome-options-write' to='/write'>SHARE</Link> : <Link className='welcome-options-write' to='/login'>SHARE</Link>
     return (
       <div className='welcome'>
         <div className='welcome-about'>
