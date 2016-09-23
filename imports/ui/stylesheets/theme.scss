@@ -1,46 +1,57 @@
 /* Globals */
-$yellow: #FAD567; 
-$orange: #F98358;
-$rose: #D2597F;
-$indigo: #978EAB;
-$blue: #569DB9;
-$green: #74AAA3;
-$olive: #50646E;
-$grey: #F0F0F0;
-$light-grey: #DCDCDC;
+$red: #C3272B;
+
+$light-gray: #FFFFFA;
+$medium-gray: #C8C8C8;
+$dark-gray: #515151;
 
 body {
-  background-color: $grey;
+  background-color: $light-gray;
 }
 
 /* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Days+One);
-@import url(https://fonts.googleapis.com/css?family=Kanit);
-@import url(https://fonts.googleapis.com/css?family=Athiti);
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:200);
 
-$title-font: 'Days One', sans-serif;
-$header-font: 'Prompt', sans-serif;
-$text-font: 'Athiti', sans-serif;
+$title-font: 'Work Sans', sans-serif;
+$header-font: 'Work Sans', sans-serif;
+$text-font: 'Work Sans', sans-serif;
 
 /* Text size */
 $title-size-h: 3vw; 
 $title-size-v: 3.5vh; 
-$subtitle-size-h: 1.5vw; 
+$subtitle-size-h: 1.4vw; 
 $header-size-h: 3vw; 
 $header-size-v: 2vh; 
-$subtitle-size-v: 2vh; 
+$subtitle-size-v: 1.5vh; 
 $introduction-size-h: 1.4vw; 
 $introduction-size-v: 1.8vh; 
-$message-size-h: 1vw; 
+$message-size-h: 1.2vw; 
 $message-size-v: 1.6vh; 
 
 /* Panel styling */
-$panel-title-color: #FFFFFF;
-$panel-subtitle-color: #FFFFFF;
-$panel-background-color: #A8A8A8;
-$panel-options-color: #50646E;
+$panel-title-color: $dark-gray;
+$panel-subtitle-color: $dark-gray;
+$panel-background-color: $light-gray;
+$panel-options-color: $dark-gray;
 
-/* Mixins */
+
+/* Panel border */
+@mixin panel () {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $medium-gray;
+  background-color: $light-gray;
+}
+
+@mixin list () {
+  background-color: $panel-background-color;
+  color: $panel-subtitle-color;
+  border: thin solid $medium-gray;
+  //border: thin solid $panel-subtitle-color;
+  appearance: node;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 
 /* Input placeholder color */
 ::-webkit-input-placeholder {

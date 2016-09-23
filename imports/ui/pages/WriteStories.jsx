@@ -68,18 +68,27 @@ class WriteStories extends React.Component {
     })
   }
 
+  buildErrorMsg (msgs) {
+    var msgOut = ''
+    for (var i = 0; i < msgs.length; i++) {
+      i === 0 ? msgOut += msgs[i] : msgOut += ', ' + msgs[i]
+    }
+    return ['Please fill in the following fields: ' + msgOut]
+  }
+
   handleButtonClick (e) {
     this.msgs_submit = []
     this.setState({msgs_submit: []})
-    required(this.state.language, this.msgs_submit, 'Language')
-    required(this.state.country, this.msgs_submit, 'Country')
-    required(this.state.date, this.msgs_submit, 'Date')
-    required(this.state.location, this.msgs_submit, 'Location')
-    required(this.state.title, this.msgs_submit, 'Title')
-    required(this.state.story, this.msgs_submit, 'Story')
+    required(this.state.date, this.msgs_submit, 'date')
+    required(this.state.language, this.msgs_submit, 'language')
+    required(this.state.country, this.msgs_submit, 'country')
+    required(this.state.location, this.msgs_submit, 'village')
+    required(this.state.title, this.msgs_submit, 'title')
+    required(this.state.story, this.msgs_submit, 'story')
 
     if (this.msgs_submit.length > 0) {
-      this.setState({msgs_submit: this.msgs_submit})
+      // this.setState({msgs_submit: this.msgs_submit})
+      this.setState({msgs_submit: this.buildErrorMsg(this.msgs_submit)})
     } else {
       publishStory.call({
         user: Meteor.userId(),
@@ -103,15 +112,15 @@ class WriteStories extends React.Component {
       <div className='write'>
         <div className='write-context'>
             <p className='write-context-header'>Context</p>
-            <DropDownList className='write-context-language' placeholder=' ▼  Select language ' defaultValue={this.props.selectedLanguage} options={this.props.languages} onChange={this.handleLanguageChange}/>
-            <DropDownList className='write-context-country' placeholder=' ▼  Select country ' defaultValue={this.props.selectedCountry} options={this.props.countries} onChange={this.handleCountryChange}/>
-            <DropDownList className='write-context-date' placeholder=' ▼  Select date ' defaultValue={this.props.selectedDate} options={this.props.dates} onChange={this.handleDateChange}/>
-            <InputAutoComplete ref='inputLoc' className='write-context-location' placeholder='Type location' options={this.props.locations} onBlur={this.handleLocationChange}/>
+            <DropDownList className='write-context-date' placeholder='date...' defaultValue={this.props.selectedDate} options={this.props.dates} onChange={this.handleDateChange}/>
+            <DropDownList className='write-context-language' placeholder='language...' defaultValue={this.props.selectedLanguage} options={this.props.languages} onChange={this.handleLanguageChange}/>
+            <DropDownList className='write-context-country' placeholder='country...' defaultValue={this.props.selectedCountry} options={this.props.countries} onChange={this.handleCountryChange}/>
+            <InputAutoComplete ref='inputLoc' className='write-context-location' placeholder='village/neighbourhood...' options={this.props.locations} onBlur={this.handleLocationChange}/>
         </div>
         <div className='write-story'>
             <p className='write-story-header'>Story</p>
-            <InputText className='write-story-title' placeholder='Title' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
-            <TextArea className='write-story-story' placeholder='Write your story' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
+            <InputText className='write-story-title' placeholder='title...' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
+            <TextArea className='write-story-story' placeholder='share your story...' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
             <MessageList className='write-story-messages' msgs={this.state.msgs_submit}/>
             <Button className='write-story-button' value='SUBMIT' onClick={this.handleButtonClick} disabled={false}/>
         </div>

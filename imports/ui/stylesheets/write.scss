@@ -14,15 +14,10 @@
 }
 
 .write-context {
-  background-color: $panel-background_color;
-  border: none;
   resize: none;
   height: 95%;
-  width: 95%;
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 100%;
+  border-right: 1px solid $medium-gray;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -38,46 +33,31 @@
 }
 
 .write-context-language {
+  @include list;
   width: 75%;
-  background-color: $panel-background-color;
   font-family: $text-font;
   font-size: $subtitle-size-h;
   padding-left: 2px;
-  color: $panel-title-color;
-  border: thin dotted white;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   cursor: pointer;
   margin-bottom: 1%;
 }
 
 .write-context-country {
+  @include list;
   width: 75%;
-  background-color: $panel-background-color;
   font-family: $text-font;
   font-size: $subtitle-size-h;
   padding-left: 2px;
-  color: $panel-title-color;
-  border: thin dotted white;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   cursor: pointer;
   margin-bottom: 1%;
 }
 
 .write-context-date {
+  @include list;
   width: 75%;
-  background-color: $panel-background-color;
   font-family: $text-font;
   font-size: $subtitle-size-h;
   padding-left: 2px;
-  color: $panel-title-color;
-  border: thin dotted white;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   cursor: pointer;
   margin-bottom: 1%;
 }
@@ -93,13 +73,15 @@
 .react-autosuggest__container {
   width: 75%;
   max-height: 40%;
+  font-size: $subtitle-size-h;
   overflow: scroll;
-  border: thin dotted white;
+  border: thin solid $medium-gray;
   margin-bottom: auto;
 }
 
 .react-autosuggest__suggestions-container {
   font-family: $text-font;
+  font-size: $subtitle-size-h;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -112,19 +94,16 @@
 }
 
 .react-autosuggest__suggestion--focused {
-  background-color: $panel-options-color;
+  background-color: $dark-gray;
+  color: $light-gray;
 }
 
 .write-story{
-  background-color: $panel-background_color;
   color: $panel-title-color;
-  border: none;
   resize: none;
   height: 95%;
-  width: 95%;
-  margin-right: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 100%;
+  border: none;
   flex: 3;
   display: flex;
   flex-direction: column;
@@ -139,37 +118,37 @@
 }
 
 .write-story-title {
-  width: 75%;
+  width: 90%;
   background-color: transparent;
   font-family: $text-font;
   font-size: $subtitle-size-h;
   padding-left: 2px;
   color: $panel-title-color;
-  border: thin dotted white;
+  border: thin solid $medium-gray;
   appearance: none;
   margin-bottom: 1%;
 }
 
 .write-story-story {
-  width: 75%;
+  width: 90%;
   height: 50%;
   background-color: transparent;
   font-family: $text-font;
   font-size: $introduction-size-h;
   padding-left: 2px;
   color: $panel-title-color;
-  border: thin dotted white;
+  border: thin solid $medium-gray;
   appearance: none;
   margin-bottom: 0;
 }
 
 .write-story-messages {
-  width: 75%;
+  width: 90%;
   background-color: transparent;
   font-family: $text-font;
   font-size: $message-size-h;
   font-weight: bold;
-  color: red;
+  color: $red;
   margin-top: 0;
   margin-bottom: auto;
 }
@@ -190,60 +169,62 @@
   }
 
   .write-context {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    width: 90%;
+    border-right: none;
+    border-bottom: thin solid $medium-gray
   }
   
   .write-context-header {
-    font-size: 1.8vh;
+    font-size: $title-size-v;
   }
 
   .write-context-language {
-    font-size: 1.8vh;
+    width: 90%;
+    font-size: $subtitle-size-v;
   }
 
   .write-context-country {
-    font-size: 1.8vh;
+    width: 90%;
+    font-size: $subtitle-size-v;
   }
 
   .write-context-date{
-    font-size: 1.8vh;
+    width: 90%;
+    font-size: $subtitle-size-v;
   }
 
   .write-context-location{
-    font-size: 1.8vh;
+    font-size: $subtitle-size-v;
   }
 
   .react-autosuggest__container {
-    max-height: 20%;
+    width: 90%;
+    max-height: 30%;
   }
 
   .write-story {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 0;
-    margin-bottom: 15px;
+    width: 90%;
+    //margin-left: 10px;
+    //margin-right: 10px;
   }
 
   .write-story-header {
-    font-size: 1.8vh;
+    font-size: $title-size-v;
   }
 
   .write-story-title {
-    font-size: 1.8vh;
+    font-size: $subtitle-size-v;
   }
 
   .write-story-story {
-    font-size: 1.5vh;
+    font-size: $introduction-size-v;
   }
 
   .write-story-messages {
-    font-size: 1vh;
+    font-size: $message-size-v;
   }
 
-  .write-storybutton {
-    font-size: 5vh;
+  .write-story-button {
+    font-size: $title-size-v;
   }
 }

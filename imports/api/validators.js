@@ -1,6 +1,6 @@
 export function required (value, errorMsgs, field) {
   if (!value) {
-    errorMsgs.push(field + ' cannot by empty')
+    errorMsgs.push(field)
   }
 }
 
