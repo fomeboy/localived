@@ -26,8 +26,8 @@
 }
 
 .write-context-header {
-  font-family: $text-font;
-  font-size: $header-size-h;
+  font-family: $title-font;
+  font-size: $subtitle-size-h;
   color: $panel-title-color;
   margin-bottom: auto;
 }
@@ -36,7 +36,7 @@
   @include list;
   width: 75%;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   padding-left: 2px;
   cursor: pointer;
   margin-bottom: 1%;
@@ -46,7 +46,7 @@
   @include list;
   width: 75%;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   padding-left: 2px;
   cursor: pointer;
   margin-bottom: 1%;
@@ -56,7 +56,7 @@
   @include list;
   width: 75%;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   padding-left: 2px;
   cursor: pointer;
   margin-bottom: 1%;
@@ -66,14 +66,14 @@
   width: 100%;
   background-color: transparent;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   color: $panel-title-color;
   border: none;
 }
 .react-autosuggest__container {
   width: 75%;
   max-height: 40%;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   overflow: scroll;
   border: thin solid $medium-gray;
   margin-bottom: auto;
@@ -81,7 +81,7 @@
 
 .react-autosuggest__suggestions-container {
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -112,8 +112,8 @@
 }
 
 .write-story-header {
-  font-family: $text-font;
-  font-size: $header-size-h;
+  font-family: $title-font;
+  font-size: $subtitle-size-h;
   margin-bottom: auto;
 }
 
@@ -121,7 +121,7 @@
   width: 90%;
   background-color: transparent;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   padding-left: 2px;
   color: $panel-title-color;
   border: thin solid $medium-gray;
@@ -134,7 +134,7 @@
   height: 50%;
   background-color: transparent;
   font-family: $text-font;
-  font-size: $introduction-size-h;
+  font-size: $ui-size-h;
   padding-left: 2px;
   color: $panel-title-color;
   border: thin solid $medium-gray;
@@ -158,7 +158,7 @@
   background-color: $panel-background-color;
   font-family: $title-font;
   font-size: $title-size-h;
-  color: $panel-options-color;
+  color: $panel-title-color;
   cursor: pointer;
   margin-bottom: auto;
 }
@@ -175,49 +175,48 @@
   }
   
   .write-context-header {
-    font-size: $title-size-v;
+    font-size: $subtitle-size-v;
   }
 
   .write-context-language {
     width: 90%;
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .write-context-country {
     width: 90%;
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .write-context-date{
     width: 90%;
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .write-context-location{
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .react-autosuggest__container {
     width: 90%;
     max-height: 30%;
+    font-size: $ui-size-v;
   }
 
-  .write-story {
-    width: 90%;
-    //margin-left: 10px;
-    //margin-right: 10px;
+  .react-autosuggest__suggestions-container {
+    font-size: $ui-size-v;
   }
 
   .write-story-header {
-    font-size: $title-size-v;
-  }
-
-  .write-story-title {
     font-size: $subtitle-size-v;
   }
 
+  .write-story-title {
+    font-size: $ui-size-v;
+  }
+
   .write-story-story {
-    font-size: $introduction-size-v;
+    font-size: $ui-size-v;
   }
 
   .write-story-messages {

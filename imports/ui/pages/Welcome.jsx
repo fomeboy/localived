@@ -22,7 +22,7 @@ class Welcome extends React.Component {
       <div className='welcome'>
         <div className='welcome-about'>
           <p className='welcome-about-title'>MODERN BARD</p>
-          <p className='welcome-about-subtitle'>Local Stories Worth Sharing</p>
+          <p className='welcome-about-subtitle'>Local Stories Worth Saving</p>
         </div>
         <div className='welcome-introduction'>
           <div contenteditable className='welcome-introduction-text'>{this.message}</div>

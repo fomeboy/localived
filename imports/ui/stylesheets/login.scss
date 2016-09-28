@@ -26,8 +26,8 @@
 }
 
 .registration-login-header {
-  font-family: $text-font;
-  font-size: $header-size-h;
+  font-family: $title-font;
+  font-size: $subtitle-size-h;
   color: $panel-title-color;
   margin-bottom: auto;
 }
@@ -36,7 +36,7 @@
   @include list;
   width: 85%;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   margin: auto;
   margin-bottom: 0;
 }
@@ -45,7 +45,7 @@
   @include list;
   width: 85%;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   margin-top: 1%;
   margin-bottom: 0;
 }
@@ -53,7 +53,7 @@
 .registration-login-message {
   width: 85%;
   background-color: transparent;
-  font-family: $title-font;
+  font-family: $text-font;
   font-size: $message-size-h;
   color: $red;
   margin-top: 0;
@@ -71,9 +71,9 @@
 }
 
 .registration-login-restore-header {
-  font-family: $title-font;
+  font-family: $text-font;
   font-size: $message-size-h;
-  color: $panel-options-color;
+  color: $panel-title-color;
 }
 
 .registration-login-restore-email {
@@ -88,8 +88,8 @@
   border: none;
   background-color: transparent;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
-  color: $panel-options-color;
+  font-size: $message-size-h;
+  color: $panel-title-color;
   cursor: pointer;
 }
 
@@ -99,7 +99,7 @@
   background-color: $panel-background-color;
   font-family: $title-font;
   font-size: $title-size-h;
-  color: $panel-options-color;
+  color: $panel-title-color;
   cursor: pointer;
   margin-top: 0;
   margin-bottom: auto;
@@ -118,8 +118,9 @@
 }
 
 .registration-signup-header {
-  font-family: $text-font;
-  font-size: $header-size-h;
+  font-family: $title-font;
+  font-size: $subtitle-size-h;
+  color: $panel-title-color;
   margin-bottom: auto;
 }
 
@@ -127,7 +128,7 @@
   @include list;
   width: 85%;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   margin: auto;
   margin-bottom: 0;
 }
@@ -137,7 +138,7 @@
   width: 85%;
   background-color: transparent;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   margin: auto;
   margin-top: 1%;
   margin-bottom: 0;
@@ -148,7 +149,7 @@
   width: 85%;
   background-color: transparent;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   margin-top: 1%;
   margin-bottom: 0;
 }
@@ -167,9 +168,9 @@
   width: 75%;
   border: none;
   background-color: transparent;
-  font-family: $text-font;
+  font-family: $title-font;
   font-size: $title-size-h;
-  color: $panel-options-color;
+  color: $panel-title-color;
   cursor: pointer;
   margin-top: 1%;
   margin-bottom: auto;
@@ -188,17 +189,17 @@
   }
   
   .registration-login-header {
-    font-size: $title-size-v;
+    font-size: $subtitle-size-v;
   }
 
   .registration-login-user {
     width: 90%;
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .registration-login-password {
     width: 90%;
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .registration-login-restore {
@@ -214,7 +215,7 @@
   }
 
   .registration-login-restore-button {
-    font-size: $header-size-v;
+    font-size: $ui-size-v;
   }
 
   .registration-login-message {
@@ -232,25 +233,26 @@
   }
 
   .registration-signup-header {
-    font-size: $title-size-v;
+    font-size: $subtitle-size-v;
   }
 
   .registration-signup-user {
     width: 90%;
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .registration-signup-email {
     width: 90%;
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .registration-signup-pass {
     width: 90%;
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .registration-signup-message {
+    width: 90%;
     font-size: $message-size-v;
   }
   

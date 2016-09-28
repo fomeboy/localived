@@ -24,24 +24,22 @@
 
 .reset-pass-header {
   color: $panel-title-color;
-  font-family: $text-font;
-  font-size: $header-size-h;
+  font-family: $title-font;
+  font-size: $subtitle-size-h;
 }
 
 .reset-pass-input {
-  @include list;
   width: 75%;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   margin: auto;
   margin-bottom: 0;
 }
 
 .reset-pass-input2 {
-  @include list;
   width: 75%;
   font-family: $text-font;
-  font-size: $subtitle-size-h;
+  font-size: $ui-size-h;
   margin: 1%;
   margin-bottom: 0;
 }
@@ -60,9 +58,9 @@
   width: 75%;
   border: none;
   background-color: transparent;
-  font-family: $text-font;
+  font-family: $title-font;
   font-size: $title-size-h;
-  color: $panel-options-color;
+  color: $panel-title-color;
   cursor: pointer;
   margin-top: 0;
   margin-bottom: auto;
@@ -81,11 +79,11 @@
   }
 
   .reset-pass-input {
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
   
   .reset-pass-input2 {
-    font-size: $subtitle-size-v;
+    font-size: $ui-size-v;
   }
 
   .reset-pass-message {

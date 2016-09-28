@@ -1,6 +1,7 @@
 import '../stylesheets/reset.scss'
 import { Meteor } from 'meteor/meteor'
 import React from 'react'
+import { buildErrorMsg } from '../../api/utils.js'
 import InputText from '../components/InputText.jsx'
 import InputPass from '../components/InputPass.jsx'
 import Button from '../components/Button.jsx'
@@ -37,6 +38,9 @@ class ResetPassword extends React.Component {
     this.setState({msgs: []})
     required(this.state.password, this.msgs, 'Password')
     required(this.state.password2, this.msgs, 'Password confirmation')
+    if (this.msgs.length > 0) {
+      this.msgs = buildErrorMsg(this.msgs)
+    }
     equality(this.state.password, this.state.password2, this.msgs, 'Passwords')
 
     if (this.msgs.length > 0) {
@@ -63,7 +67,7 @@ class ResetPassword extends React.Component {
           <InputPass className='reset-pass-input' placeholder='Type new password' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
           <InputPass className='reset-pass-input2' placeholder='Confirm new password' onBlur={this.handlePasswordChange2} disabled={false} readonly={false}/>
           <MessageList className='reset-pass-message' msgs={this.state.msgs}/>
-          <Button className='reset-pass-button' value='Reset password' onClick={this.handleResetClick} disabled={false}/>
+          <Button className='reset-pass-button' value='RESET PASSWORD' onClick={this.handleResetClick} disabled={false}/>
         </div>
       </div>
     )

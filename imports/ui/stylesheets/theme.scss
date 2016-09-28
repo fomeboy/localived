@@ -10,30 +10,27 @@ body {
 }
 
 /* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:200);
+@import url(https://fonts.googleapis.com/css?family=Lora);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
-$title-font: 'Work Sans', sans-serif;
-$header-font: 'Work Sans', sans-serif;
-$text-font: 'Work Sans', sans-serif;
+$title-font: 'Lora', serif;
+$text-font: 'Open Sans Condensed', sans-serif;
 
 /* Text size */
 $title-size-h: 3vw; 
 $title-size-v: 3.5vh; 
-$subtitle-size-h: 1.4vw; 
-$header-size-h: 3vw; 
-$header-size-v: 2vh; 
-$subtitle-size-v: 1.5vh; 
-$introduction-size-h: 1.4vw; 
-$introduction-size-v: 1.8vh; 
+$subtitle-size-h: 2vw;
+$subtitle-size-v: 2.5vh;
+$ui-size-h: 1.6vw;
+$ui-size-v: 2vh; 
+$text-size-h: 1.4vw;
+$text-size-v: 1.8vh;
 $message-size-h: 1.2vw; 
 $message-size-v: 1.6vh; 
 
 /* Panel styling */
 $panel-title-color: $dark-gray;
-$panel-subtitle-color: $dark-gray;
 $panel-background-color: $light-gray;
-$panel-options-color: $dark-gray;
-
 
 /* Panel border */
 @mixin panel () {
@@ -45,9 +42,8 @@ $panel-options-color: $dark-gray;
 
 @mixin list () {
   background-color: $panel-background-color;
-  color: $panel-subtitle-color;
+  color: $panel-title-color;
   border: thin solid $medium-gray;
-  //border: thin solid $panel-subtitle-color;
   appearance: node;
   -webkit-appearance: none;
   -moz-appearance: none;

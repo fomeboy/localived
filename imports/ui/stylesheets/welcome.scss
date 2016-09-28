@@ -35,9 +35,9 @@
 }
 
 .welcome-about-subtitle {
-  color: $panel-subtitle-color;
-  font-family: $header-font;
-  font-size: $subtitle-size-h;
+  color: $panel-title-color;
+  font-family: $text-font;
+  font-size: $ui-size-h;
   margin-top: 0;
 }
 
@@ -56,7 +56,7 @@
   -webkit-opacity: 1; 
   -webkit-text-fill-color: $dark-gray; 
   font-family: $text-font;
-  font-size: $introduction-size-h;
+  font-size: $text-size-h;
   padding: 10%;
   text-align: justify;
   border: none;
@@ -78,14 +78,14 @@
   text-decoration: none;
   padding-bottom: 1vw;
   font-size: $title-size-h;
-  color: $panel-options-color;
+  color: $panel-title-color;
 }
 
 .welcome-options-write {
   text-decoration: none;
   padding-bottom: 1vw;
   font-size: $title-size-h;
-  color: $panel-options-color;
+  color: $panel-title-color;
 }
 
 @media screen and (orientation: portrait) {
@@ -105,7 +105,7 @@
     }
     
     .welcome-about-subtitle {
-      font-size: $subtitle-size-v;
+      font-size: $ui-size-v;
     }
 
     .welcome-introduction {
@@ -119,7 +119,7 @@
     }
     
     .welcome-introduction-text {
-      font-size: $introduction-size-v;
+      font-size: $text-size-v;
     }
 
     .welcome-options {
