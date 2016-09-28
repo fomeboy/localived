@@ -46,5 +46,6 @@ export const publishStory = new ValidatedMethod({
       title: title,
       story: story
     })
+  //  if location not exists
   }
 })
