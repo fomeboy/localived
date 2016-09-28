@@ -26,3 +26,4 @@ accounts-base
 email
 seba:minifiers-autoprefixer
 fourseven:scss
+mdg:validation-error

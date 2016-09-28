@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 
-Accounts.emailTemplates.siteName = 'Localived - Stories worth saving'
-Accounts.emailTemplates.from = 'Localived Admin <info@localived.com>'
+Accounts.emailTemplates.siteName = 'MODERN BARD - Local Stories Worth Saving'
+Accounts.emailTemplates.from = 'MODERN BARD Admin <info@modern-bard.com>'
 Accounts.urls.resetPassword = (token) => {
   return Meteor.absoluteUrl('reset-password/' + token)
 }

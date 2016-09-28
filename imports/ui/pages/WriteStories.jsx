@@ -13,6 +13,7 @@ import { required } from '../../api/validators.js'
 import { Session } from 'meteor/session'
 import { browserHistory } from 'react-router'
 import { publishStory } from '../../api/writestories/methods.js'
+import { ValidationError } from 'meteor/mdg:validation-error'
 
 class WriteStories extends React.Component {
 
@@ -83,8 +84,6 @@ class WriteStories extends React.Component {
       this.setState({msgs_submit: buildErrorMsg(this.msgs_submit)})
     } else {
       publishStory.call({
-        user: Meteor.userId(),
-        creationDate: new Date(),
         language: this.state.language,
         country: this.state.country,
         location: this.state.location,
@@ -93,7 +92,13 @@ class WriteStories extends React.Component {
         story: this.state.story
       }, (err, res) => {
         if (err) {
-          console.log('Error submiting story: ' + err)
+          if (ValidationError.is(err)) {
+            this.setState({msgs_submit: this.msgs_submit.concat('Fields validation error: ' + err.reason)})
+          } else {
+            this.setState({msgs_submit: this.msgs_submit.concat('Story submission error: ' + err.reason)})
+          }
+        } else {
+          this.setState({msgs_submit: this.msgs_submit.concat('Story submitted! Please wait for approval...')})
         }
       })
     }
