@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor'
-import { Languages, Countries, Dates, Stories } from './collections.js'
+import { Languages, Countries, Dates, Locations, Stories } from './collections.js'
 import { ValidatedMethod } from 'meteor/mdg:validated-method'
 import { StoriesSchema } from './schemas.js'
 
@@ -31,6 +31,8 @@ export const publishStory = new ValidatedMethod({
   name: 'publishStory',
   validate: StoriesSchema.validator(),
   run ({language, country, location, date, title, story}) {
+    var regEx = '^' + location + '$'
+
     if (!this.userId) {
       throw new Meteor.Error('publishStory.userID', 'Please log in first...')
     }
@@ -46,6 +48,14 @@ export const publishStory = new ValidatedMethod({
       title: title,
       story: story
     })
-  //  if location not exists
+
+    if (Locations.find({country: country, location: {$regex: regEx, $options: 'i'}}).count() === 0) {
+      Locations.insert({
+        creationDate: new Date(),
+        verified: false,
+        location: location,
+        country: country
+      })
+    }
   }
 })

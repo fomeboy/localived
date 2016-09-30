@@ -10,5 +10,6 @@ export const StoriesSchema = new SimpleSchema({
   date: {type: String},
   title: {type: String},
   story: {type: String, min: 30},
-  updateDate: {type: Date, optional: true}
+  updateDate: {type: Date, optional: true},
+  verifiedDate: {type: Date, optional: true}
 })
