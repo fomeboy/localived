@@ -4,12 +4,17 @@ class TextArea extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {value: ''}
     this.handleTab = this.handleTab.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange (e) {
+    this.setState({value: e.target.value})
   }
 
   handleTab (event) {
-    var ref = this.refs.reference
+    var ref = this.refs['storyText']
     var val = ref.value
     var start = ref.selectionStart
     var end = ref.selectionEnd
@@ -25,7 +30,8 @@ class TextArea extends React.Component {
   render () {
     return (
       <textarea
-        ref = 'reference'
+        ref='storyText'
+        value={this.state.value}
         className={this.props.className}
         disabled={this.props.disabled}
         placeholder={this.props.placeholder}
@@ -33,7 +39,8 @@ class TextArea extends React.Component {
         maxlength={this.props.maxlength}
         onBlur={this.props.onBlur}
         onKeyDown={this.handleTab}
-        >{this.props.value}</textarea>
+        onChange={this.handleChange}
+        />
     )
   }
 }

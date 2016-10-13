@@ -1,6 +1,10 @@
 import { Meteor } from 'meteor/meteor'
-import { Locations } from '../collections.js'
+import { Stories, Locations } from '../collections.js'
 
 Meteor.publish('locations.public', function () {
-  return Locations.find({}, { fields: Locations.publicFields })
+  return Locations.find({verified: true}, { fields: Locations.publicFields })
+})
+
+Meteor.publish('userStories.public', function () {
+  return Stories.find({users__id: this.userId}, { fields: Stories.publicFields })
 })

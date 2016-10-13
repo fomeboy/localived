@@ -20,19 +20,21 @@ class InputAutoComplete extends React.Component {
   getSuggestions (value) {
     const inputValue = value.trim().toLowerCase()
     const inputLength = inputValue.length
+    var pattern = new RegExp(inputValue, 'i')
 
     return inputLength === 0 ? [] : this.props.options.filter(
-      item => item.value.toLowerCase().slice(0, inputLength) === inputValue
+      //  item => item.location.toLowerCase().slice(0, inputLength) === inputValue
+      item => pattern.test(item.location)
     )
   }
 
   getSuggestionValue (suggestion) {
-    return suggestion.value
+    return suggestion.location
   }
 
   renderSuggestion (suggestion) {
     return (
-      <span>{suggestion.value}</span>
+      <span>{suggestion.location}</span>
     )
   }
 

@@ -14,12 +14,13 @@ import { Session } from 'meteor/session'
 import { browserHistory } from 'react-router'
 import { publishStory } from '../../api/writestories/methods.js'
 import { ValidationError } from 'meteor/mdg:validation-error'
+import { Locations, Stories } from '../../api/writestories/collections.js'
 
 class WriteStories extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {title: ''}
     this.handleLanguageChange = this.handleLanguageChange.bind(this)
     this.handleCountryChange = this.handleCountryChange.bind(this)
     this.handleDateChange = this.handleDateChange.bind(this)
@@ -27,6 +28,7 @@ class WriteStories extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this)
     this.handleStoryChange = this.handleStoryChange.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
+    this.clearInputs = this.clearInputs.bind(this)
   }
 
   componentWillMount () {
@@ -70,6 +72,15 @@ class WriteStories extends React.Component {
     })
   }
 
+  clearInputs () {
+    this.refs.inputDate.state.value = ''
+    this.refs.inputLanguage.state.value = ''
+    this.refs.inputCountry.state.value = ''
+    this.refs.inputLoc.state.value = ''
+    this.refs.inputTitle.state.value = ''
+    this.refs.inputStory.state.value = ''
+  }
+
   handleButtonClick (e) {
     this.msgs_submit = []
     this.setState({msgs_submit: []})
@@ -83,24 +94,34 @@ class WriteStories extends React.Component {
     if (this.msgs_submit.length > 0) {
       this.setState({msgs_submit: buildErrorMsg(this.msgs_submit)})
     } else {
-      publishStory.call({
-        language: this.state.language,
-        country: this.state.country,
-        location: this.state.location,
-        date: this.state.date,
-        title: this.state.title,
-        story: this.state.story
-      }, (err, res) => {
-        if (err) {
-          if (ValidationError.is(err)) {
-            this.setState({msgs_submit: this.msgs_submit.concat('Fields validation error: ' + err.reason)})
+      if (Stories.find({date: this.state.date,
+                       language: this.state.language,
+                       country: this.state.country,
+                       location: this.state.location,
+                       title: this.state.title
+      }).count() > 0) {
+        this.setState({msgs_submit: this.msgs_submit.concat('Story already exists. To edit it please use your account area...')})
+      } else {
+        publishStory.call({
+          language: this.state.language,
+          country: this.state.country,
+          location: this.state.location,
+          date: this.state.date,
+          title: this.state.title,
+          story: this.state.story
+        }, (err, res) => {
+          if (err) {
+            if (ValidationError.is(err)) {
+              this.setState({msgs_submit: this.msgs_submit.concat('Field validation error: ' + err.reason)})
+            } else {
+              this.setState({msgs_submit: this.msgs_submit.concat('Story submission error: ' + err.reason)})
+            }
           } else {
-            this.setState({msgs_submit: this.msgs_submit.concat('Story submission error: ' + err.reason)})
+            this.clearInputs()
+            this.setState({msgs_submit: this.msgs_submit.concat('Story submitted! Please wait for approval...')})
           }
-        } else {
-          this.setState({msgs_submit: this.msgs_submit.concat('Story submitted! Please wait for approval...')})
-        }
-      })
+        })
+      }
     }
   }
 
@@ -109,15 +130,15 @@ class WriteStories extends React.Component {
       <div className='write'>
         <div className='write-context'>
             <p className='write-context-header'>Context</p>
-            <DropDownList className='write-context-date' placeholder='Date' defaultValue={this.props.selectedDate} options={this.props.dates} onChange={this.handleDateChange}/>
-            <DropDownList className='write-context-language' placeholder='Language' defaultValue={this.props.selectedLanguage} options={this.props.languages} onChange={this.handleLanguageChange}/>
-            <DropDownList className='write-context-country' placeholder='Country' defaultValue={this.props.selectedCountry} options={this.props.countries} onChange={this.handleCountryChange}/>
+            <DropDownList ref='inputDate' className='write-context-date' placeholder='Date' options={this.props.dates} onBlur={this.handleDateChange}/>
+            <DropDownList ref='inputLanguage' className='write-context-language' placeholder='Language' defaultValue={this.props.selectedLanguage} options={this.props.languages} onBlur={this.handleLanguageChange}/>
+            <DropDownList ref='inputCountry' className='write-context-country' placeholder='Country' defaultValue={this.props.selectedCountry} options={this.props.countries} onBlur={this.handleCountryChange}/>
             <InputAutoComplete ref='inputLoc' className='write-context-location' placeholder='Village/Neighbourhood' options={this.props.locations} onBlur={this.handleLocationChange}/>
         </div>
         <div className='write-story'>
             <p className='write-story-header'>Story</p>
-            <InputText className='write-story-title' placeholder='Title' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
-            <TextArea className='write-story-story' placeholder='Story' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
+            <InputText ref='inputTitle' className='write-story-title' placeholder='Title' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
+            <TextArea ref='inputStory' className='write-story-story' placeholder='Story' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
             <MessageList className='write-story-messages' msgs={this.state.msgs_submit}/>
             <Button className='write-story-button' value='SUBMIT' onClick={this.handleButtonClick} disabled={false}/>
         </div>
@@ -135,8 +156,6 @@ WriteStories.propTypes = {
 
 WriteStories.defaultProps = {
   // selectedLanguage: 'English',
-  // selectedCountry: 'Portugal',
-  // selectedDate: '2015'
 }
 
 export default WriteStories

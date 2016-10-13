@@ -4,19 +4,26 @@ class InputText extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {value: ''}
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange (e) {
+    this.setState({value: e.target.value})
   }
 
   render () {
     return (
       <input
         type='text'
+        value={this.state.value}
         placeholder={this.props.placeholder}
         className={this.props.className}
         disabled={this.props.disabled}
         readonly={this.props.readonly}
         maxlength={this.props.maxlength}
         onBlur={this.props.onBlur}
+        onChange={this.handleChange}
       />
     )
   }
