@@ -25,7 +25,7 @@ class Welcome extends React.Component {
           <p className='welcome-about-subtitle'>Local Stories Worth Saving</p>
         </div>
         <div className='welcome-introduction'>
-          <div contenteditable className='welcome-introduction-text'>{this.message}</div>
+          <div className='welcome-introduction-text'>{this.message}</div>
         </div>
         <div className='welcome-options'>
           <Link className='welcome-options-read' to='/read'>READ</Link>

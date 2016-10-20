@@ -73,12 +73,29 @@ class WriteStories extends React.Component {
   }
 
   clearInputs () {
-    this.refs.inputDate.state.value = ''
-    this.refs.inputLanguage.state.value = ''
-    this.refs.inputCountry.state.value = ''
-    this.refs.inputLoc.state.value = ''
-    this.refs.inputTitle.state.value = ''
-    this.refs.inputStory.state.value = ''
+    this.setState({date: ''}, () => {
+      this.refs.inputDate.state.value = ''
+    })
+
+    this.setState({language: ''}, () => {
+      this.refs.inputLanguage.state.value = ''
+    })
+
+    this.setState({country: ''}, () => {
+      this.refs.inputCountry.state.value = ''
+    })
+
+    this.setState({location: ''}, () => {
+      this.refs.inputLoc.state.value = ''
+    })
+
+    this.setState({title: ''}, () => {
+      this.refs.inputTitle.state.value = ''
+    })
+
+    this.setState({story: ''}, () => {
+      this.refs.inputStory.state.value = ''
+    })
   }
 
   handleButtonClick (e) {

@@ -55,6 +55,7 @@
   background-color: transparent;
   font-family: $text-font;
   font-size: $message-size-h;
+  font-weight: bold;
   color: $red;
   margin-top: 0;
   margin-bottom: auto;
@@ -89,7 +90,7 @@
   background-color: transparent;
   font-family: $text-font;
   font-size: $message-size-h;
-  color: $panel-title-color;
+  color: $event-color;
   cursor: pointer;
 }
 
@@ -99,7 +100,7 @@
   background-color: $panel-background-color;
   font-family: $title-font;
   font-size: $title-size-h;
-  color: $panel-title-color;
+  color: $event-color;
   cursor: pointer;
   margin-top: 0;
   margin-bottom: auto;
@@ -159,6 +160,7 @@
   background-color: transparent;
   font-family: $text-font;
   font-size: $message-size-h;
+  font-weight: bold;
   color: $red;
   margin-top: 0;
   margin-bottom: auto;
@@ -170,7 +172,7 @@
   background-color: transparent;
   font-family: $title-font;
   font-size: $title-size-h;
-  color: $panel-title-color;
+  color: $event-color;
   cursor: pointer;
   margin-top: 1%;
   margin-bottom: auto;

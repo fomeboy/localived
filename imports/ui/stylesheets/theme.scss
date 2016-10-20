@@ -4,6 +4,7 @@ $red: #C3272B;
 $light-gray: #FFFFFA;
 $medium-gray: #C8C8C8;
 $dark-gray: #515151;
+$dark-blue: #216F85;
 
 body {
   background-color: $light-gray;
@@ -31,6 +32,7 @@ $message-size-v: 1.6vh;
 /* Panel styling */
 $panel-title-color: $dark-gray;
 $panel-background-color: $light-gray;
+$event-color: $dark-blue;
 
 /* Panel border */
 @mixin panel () {

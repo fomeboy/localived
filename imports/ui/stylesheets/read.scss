@@ -1,0 +1,107 @@
+@import 'theme.scss';
+
+.stories-feed {
+  position: absolute;
+  top: 0;
+  bottom:0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stories-feed-header {
+  resize: none;
+  height: 100%;
+  width: 100%;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stories-feed-header-title {
+  background-color: transparent;
+  font-family: $title-font;
+  font-size: $subtitle-size-h;
+  color: $panel-title-color;
+}
+
+.stories-feed-stories {
+  background-color: transparent;
+  resize: none;
+  height: 100%;
+  width: 100%;
+  border: none;
+  flex: 10;
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-content: space-around;
+}
+
+.stories-feed-stories-story {
+  width: 20%;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+}
+
+.stories-feed-stories-story-title-box {
+ width: 90%;
+ text-align: center;
+ flex: 2;
+ border-bottom: thin solid $medium-gray;
+}
+
+.stories-feed-stories-story-title {
+  background-color: transparent;
+  width: 90%;
+  font-family: $title-font;
+  font-size: $text-size-h;
+  color: $panel-title-color;
+}
+
+.stories-feed-stories-story-text {
+  background-color: transparent;
+  width: 90%;
+  text-align: justify;
+  word-wrap: break-word;
+  overflow: hidden;
+  margin-top: 5%;
+  flex: 10;
+  font-family: $text-font;
+  font-size: $text-size-h;
+  color: $panel-title-color;
+  border: none;
+}
+
+.stories-feed-stories-story-footer {
+  background-color: transparent;
+  width: 90%;
+  flex: 1;
+  display: flex;
+  border-top: thin solid $medium-gray;
+}
+
+.stories-feed-stories-story-footer-read {
+  border: none;
+  background-color:$panel-background-color;
+  font-family: $title-font;
+  font-size: $text-size-h;
+  color: $event-color;
+  cursor: pointer;
+  flex: 1;
+}
+
+.stories-feed-footer {
+  width: 100%;
+  flex: 1;
+}
