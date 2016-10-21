@@ -1,6 +1,7 @@
 import '../stylesheets/read.scss'
 import React from 'react'
 import TextBox from '../components/TextBox.jsx'
+import Button from '../components/Button.jsx'
 
 class ReadStories extends React.Component {
 
@@ -17,7 +18,10 @@ class ReadStories extends React.Component {
           <TextBox className='stories-feed-stories-story'/>
           <TextBox className='stories-feed-stories-story'/>
         </div>
-        <div className='stories-feed-footer'>NEXT</div>
+        <div className='stories-feed-footer'>
+          <Button className='stories-feed-footer-previous' value='PREVIOUS' disabled={false}/>
+          <Button className='stories-feed-footer-next' value='NEXT' disabled={false}/>
+        </div>
       </div>
     )
   }
