@@ -12,9 +12,9 @@ import MessageList from '../components/MessageList.jsx'
 import { required } from '../../api/validators.js'
 import { Session } from 'meteor/session'
 import { browserHistory } from 'react-router'
-import { publishStory } from '../../api/writestories/methods.js'
+import { publishStory } from '../../api/methods.js'
 import { ValidationError } from 'meteor/mdg:validation-error'
-import { Locations, Stories } from '../../api/writestories/collections.js'
+import { Locations, Stories } from '../../api/collections.js'
 
 class WriteStories extends React.Component {
 

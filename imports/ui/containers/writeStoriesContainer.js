@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { createContainer } from 'meteor/react-meteor-data'
 import WriteStories from '../pages/WriteStories.jsx'
-import { Stories, Locations } from '../../api/writestories/collections.js'
-import { LocalLanguages, LocalCountries, LocalDates } from '../../api/writestories/client/collections.js'
+import { Stories, Locations } from '../../api/collections.js'
+import { LocalLanguages, LocalCountries, LocalDates } from '../../api/client/collections.js'
 import { Session } from 'meteor/session'
 
 export default createContainer(() => {
@@ -20,7 +20,7 @@ export default createContainer(() => {
   }
 
   if (storiesHandle.ready()) {
-    stories = Stories.find({}, {sort: {value: 0}}).fetch()
+    stories = Stories.find({}, {}).fetch()
   }
 
   // Local collections

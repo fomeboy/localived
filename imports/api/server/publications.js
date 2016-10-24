@@ -8,3 +8,7 @@ Meteor.publish('locations.public', function () {
 Meteor.publish('userStories.public', function () {
   return Stories.find({users__id: this.userId}, { fields: Stories.publicFields })
 })
+
+Meteor.publish('stories.public', function () {
+  return Stories.find({}, {sort: {updateDate: -1}, fields: Stories.publicFields})
+})
