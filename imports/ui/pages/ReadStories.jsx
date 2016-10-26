@@ -1,3 +1,5 @@
+/* eslint no-unneeded-ternary:0 */
+
 import '../stylesheets/read.scss'
 import React from 'react'
 import TextBox from '../components/TextBox.jsx'
@@ -8,24 +10,22 @@ class ReadStories extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {prevButtonDisabled: false}
+    this.state = {}
     this.handleNext = this.handleNext.bind(this)
     this.handlePrevious = this.handlePrevious.bind(this)
+    this.nrCols = 4
   }
 
   handleNext () {
     var curr = Session.get('docSkip')
-    curr = curr + 4
+    curr = curr + this.nrCols
     Session.set('docSkip', curr)
   }
 
   handlePrevious () {
     var curr = Session.get('docSkip')
-    curr = curr - 4
+    curr = curr - this.nrCols
     Session.set('docSkip', curr)
-    if (curr === 0) {
-      this.setState({prevButtonDisabled: true})
-    }
   }
 
   resizeTitle (title) {
@@ -43,7 +43,7 @@ class ReadStories extends React.Component {
   }
 
   resizeStory (story) {
-    var storyMaxLength = 450
+    var storyMaxLength = 400
     var segInit = 0
     var pos
 
@@ -75,17 +75,19 @@ class ReadStories extends React.Component {
     return (
       <div className= 'stories-feed'>
         <div className='stories-feed-header'>
-          <p className='stories-feed-header-title' disable={true} readonly={true}>Stories Feed</p>
+          <p className='stories-feed-header-title' disable={true} readonly={true}>STORIES FEED</p>
         </div>
         <div className='stories-feed-stories'>
-          {this.props.stories.map((story, i) => {
-            return <TextBox key={i} className='stories-feed-stories-story' title={this.resizeTitle(story.title)} context={this.resizeContext(story.country, story.location, story.date)} story={this.resizeStory(story.story)} date={story.date} country={story.country} location={story.location}/>
-          })
+        {this.props.stories.map((story, i) => {
+          if (i < this.nrCols) {
+            return <TextBox key={i} className='stories-feed-stories-story' title={story.title} resizedTitle={this.resizeTitle(story.title)} context={this.resizeContext(story.country, story.location, story.date)} resizedStory={this.resizeStory(story.story)} story={story.story} date={story.date} country={story.country} location={story.location} author={story.username}/>
+          }
+        })
           }
         </div>
         <div className='stories-feed-footer'>
-          <Button ref='prevButton' className='stories-feed-footer-previous' value='PREVIOUS' onClick={this.handlePrevious} disabled={this.state.prevButtonDisabled}/>
-          <Button className='stories-feed-footer-next' value='NEXT' onClick={this.handleNext} disabled={false}/>
+          <Button className='stories-feed-footer-previous' value='PREVIOUS' onClick={this.handlePrevious} disabled={Session.get('docSkip') === 0 ? true : false }/>
+          <Button className='stories-feed-footer-next' value='NEXT' onClick={this.handleNext} disabled={this.props.stories.length === Session.get('docLimit') ? false : true}/>
         </div>
       </div>
     )

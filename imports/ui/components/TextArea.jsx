@@ -4,7 +4,7 @@ class TextArea extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {value: ''}
+    this.state = {value: this.props.value}
     this.handleTab = this.handleTab.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }

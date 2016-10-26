@@ -33,13 +33,17 @@ export const publishStory = new ValidatedMethod({
   run ({language, country, location, date, title, story}) {
     var regEx = '^' + location + '$'
     var now = new Date()
+    var author
 
     if (!this.userId) {
       throw new Meteor.Error('publishStory.userID', 'Please log in first...')
     }
 
+    author = Meteor.users.findOne({_id: this.userId}, {fields: {username: 1}}).username
+
     Stories.insert({
       users__id: this.userId,
+      username: author,
       creationDate: now,
       updateDate: now,
       verified: false,

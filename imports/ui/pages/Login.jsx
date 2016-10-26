@@ -155,12 +155,12 @@ class Login extends React.Component {
     return (
       <div className='registration'>
         <div className='registration-login'>
-          <p className='registration-login-header'>Already registered?</p>
+          <p className='registration-login-header'>ALREADY REGISTERED?</p>
           <InputText className='registration-login-user' placeholder='Username' onBlur={this.handleUserChangeLogin} disabled={false} readonly={false}/>
           <InputPass className='registration-login-password' placeholder='Password' onBlur={this.handlePasswordChangeLogin} disabled={false} readonly={false}/>
           {this.state.passError
            ? <div className='registration-login-restore'>
-              <p className='registration-login-restore-header'>Forgot password?</p>
+              <p className='registration-login-restore-header'>FORGOT PASSWORD?</p>
               <InputText className='registration-login-restore-email' placeholder='Type your email' onBlur={this.handleEmailPassChange} disabled={false} readonly={false}/>
               <Button className='registration-login-restore-button' value='RESTORE PASSWORD' onClick={this.handleRestorePassClick} disabled={false}/>
             </div>
@@ -169,7 +169,7 @@ class Login extends React.Component {
           <Button className='registration-login-button' value='LOGIN' onClick={this.handleLogInClick} disabled={false}/>
         </div>
         <div className='registration-signup'>
-          <p className='registration-signup-header'>New to Modern Bard?</p>
+          <p className='registration-signup-header'>NEW TO MODERN BARD?</p>
           <InputText className='registration-signup-email' placeholder='Email' onBlur={this.handleEmailChange} disabled={false} readonly={false}/>
           <InputText className='registration-signup-user' placeholder='Username' onBlur={this.handleUserChange} disabled={false} readonly={false}/>
           <InputPass className='registration-signup-pass' placeholder='Password' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>

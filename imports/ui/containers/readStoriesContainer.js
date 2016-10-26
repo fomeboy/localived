@@ -7,10 +7,13 @@ import { Session } from 'meteor/session'
 export default createContainer(() => {
   let stories = []
   let storiesHandle = Meteor.subscribe('stories.public', null)
-  let queryOptions = {limit: Session.get('docLimit'), skip: Session.get('docSkip')}
+  let queryOptions = {sort: {updateDate: -1}, limit: Session.get('docLimit'), skip: Session.get('docSkip')}
+  let cursor
 
   if (storiesHandle.ready()) {
-    stories = Stories.find({}, queryOptions).fetch()
+    cursor = Stories.find({}, queryOptions)
+    Session.set('docCount', cursor.count())
+    stories = cursor.fetch()
   }
 
   return {

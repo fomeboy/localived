@@ -9,7 +9,7 @@ import '../imports/ui/stylesheets/theme.scss'
 
 Meteor.startup(() => {
   Session.set('selectedCountry', '')
-  Session.set('docLimit', 4)
+  Session.set('docLimit', 5)
   Session.set('docSkip', 0)
   render(routes(), document.getElementById('render-app'))
 })

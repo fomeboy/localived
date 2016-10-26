@@ -11,24 +11,24 @@ body {
 }
 
 /* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Lora);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+$title-font: 'PT Sans', sans-serif;
 
-$title-font: 'Lora', serif;
-$text-font: 'Open Sans Condensed', sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100);
+$text-font: 'Roboto Slab', serif;
 
 /* Text size */
-$title-size-h: 3vw; 
+$title-size-h: 2.9vw; 
 $title-size-v: 3.5vh; 
 $subtitle-size-h: 2vw;
 $subtitle-size-v: 2.5vh;
 $ui-size-h: 1.6vw;
 $ui-size-v: 2vh; 
-$text-size-h: 1.4vw;
+$text-size-h: 1.3vw;
 $text-size-v: 1.8vh;
-$message-size-h: 1.2vw; 
+$message-size-h: 1.1vw; 
 $message-size-v: 1.6vh; 
-$context-size-h: 1.1vw; 
+$context-size-h: 1.3vw; 
 $context-size-v: 1.4vh; 
 
 /* Panel styling */

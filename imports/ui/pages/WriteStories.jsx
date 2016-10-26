@@ -146,14 +146,14 @@ class WriteStories extends React.Component {
     return (
       <div className='write'>
         <div className='write-context'>
-            <p className='write-context-header'>Context</p>
+            <p className='write-context-header'>CONTEXT</p>
             <DropDownList ref='inputDate' className='write-context-date' placeholder='Date' options={this.props.dates} onBlur={this.handleDateChange}/>
             <DropDownList ref='inputLanguage' className='write-context-language' placeholder='Language' defaultValue={this.props.selectedLanguage} options={this.props.languages} onBlur={this.handleLanguageChange}/>
             <DropDownList ref='inputCountry' className='write-context-country' placeholder='Country' defaultValue={this.props.selectedCountry} options={this.props.countries} onBlur={this.handleCountryChange}/>
             <InputAutoComplete ref='inputLoc' className='write-context-location' placeholder='Village/Neighbourhood' options={this.props.locations} onBlur={this.handleLocationChange}/>
         </div>
         <div className='write-story'>
-            <p className='write-story-header'>Story</p>
+            <p className='write-story-header'>STORY</p>
             <InputText ref='inputTitle' className='write-story-title' placeholder='Title' onBlur={this.handleTitleChange} disabled={false} readonly={false}/>
             <TextArea ref='inputStory' className='write-story-story' placeholder='Story' onBlur={this.handleStoryChange} disabled={false} readonly={false}/>
             <MessageList className='write-story-messages' msgs={this.state.msgs_submit}/>

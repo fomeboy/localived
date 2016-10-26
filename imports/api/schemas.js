@@ -2,6 +2,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 
 export const StoriesSchema = new SimpleSchema({
   users__id: {type: String, regEx: SimpleSchema.RegEx.Id, optional: true},
+  username: {type: String, optional: true},
   creationDate: {type: Date, optional: true},
   verified: {type: Boolean, optional: true},
   language: {type: String},

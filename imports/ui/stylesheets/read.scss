@@ -75,7 +75,7 @@
   overflow: hidden;
   //flex: 1;
   font-family: $title-font;
-  font-size: $text-size-h;
+  font-size: $ui-size-h;
   color: $panel-title-color;
 }
 
@@ -118,6 +118,7 @@
 }
 
 .stories-feed-stories-story-footer-read {
+  text-decoration: none;
   border: none;
   background-color: transparent;
   font-family: $title-font;
@@ -149,6 +150,10 @@
   padding-left: 25%
 }
 
+.stories-feed-footer-previous:disabled {
+  color: $medium-gray;
+}
+
 .stories-feed-footer-next {
   border: none;
   background-color:$panel-background-color;
@@ -158,4 +163,8 @@
   cursor: pointer;
   margin-left: auto;
   padding-right: 25%
+}
+
+.stories-feed-footer-next:disabled {
+  color: $medium-gray;
 }

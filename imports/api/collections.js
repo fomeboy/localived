@@ -18,6 +18,8 @@ Locations.publicFields = {
 
 Stories.publicFields = {
   verified: 1,
+  updateDate: 1,
+  username: 1,
   language: 1,
   country: 1,
   date: 1,

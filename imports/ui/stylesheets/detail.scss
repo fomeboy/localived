@@ -1,0 +1,55 @@
+@import 'theme.scss';
+
+.detail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-header {
+  width: 90%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: thin solid $medium-gray;
+}
+
+.detail-header-title {
+  flex: 1;
+  //align-text: center;
+  color: $panel-title-color;
+  font-family: $title-font;
+  font-size: $subtitle-size-h;
+}
+
+.detail-story {
+  background-color: transparent;
+  width: 90%;
+  flex: 6;
+  color: black;
+  font-family: $text-font;
+  font-size: $ui-size-h;
+  border: none;
+  resize: none;
+}
+
+.detail-close-button {
+  width: 75%;
+  border: none;
+  background-color: transparent;
+  font-family: $title-font;
+  font-size: $title-size-h;
+  color: $event-color;
+  cursor: pointer;
+  flex: 1;
+}

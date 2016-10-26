@@ -10,5 +10,5 @@ Meteor.publish('userStories.public', function () {
 })
 
 Meteor.publish('stories.public', function () {
-  return Stories.find({}, {sort: {updateDate: -1}, fields: Stories.publicFields})
+  return Stories.find({}, {fields: Stories.publicFields})
 })

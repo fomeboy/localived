@@ -63,7 +63,7 @@ class ResetPassword extends React.Component {
     return (
       <div className='reset'>
         <div className='reset-pass'>
-          <p className='reset-pass-header'>Password reset requested?</p>
+          <p className='reset-pass-header'>PASSWORD RESET REQUESTED?</p>
           <InputPass className='reset-pass-input' placeholder='Type new password' onBlur={this.handlePasswordChange} disabled={false} readonly={false}/>
           <InputPass className='reset-pass-input2' placeholder='Confirm new password' onBlur={this.handlePasswordChange2} disabled={false} readonly={false}/>
           <MessageList className='reset-pass-message' msgs={this.state.msgs}/>
