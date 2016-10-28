@@ -19,7 +19,7 @@ class StoryDetail extends React.Component {
   }
 
   handleCloseClick (e) {
-    browserHistory.replace('/read')
+    browserHistory.goBack()
   }
 
   render () {
@@ -29,7 +29,7 @@ class StoryDetail extends React.Component {
           <p className='detail-header-title'>{this.props.params.title}</p>
         </div>
         <TextArea className='detail-story' value={this.props.params.story} disabled={true} readonly={true}/>
-        <div className='detail-author'>{this.props.params.author}</div>
+        <div className='detail-author'>{'bard: ' + this.props.params.author}</div>
         <Button className='detail-close-button' value='CLOSE' onClick={this.handleCloseClick} disabled={false}/>
       </div>
     )

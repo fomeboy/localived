@@ -16,7 +16,7 @@
 
 .detail-header {
   width: 90%;
-  flex: 1;
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .detail-header-title {
-  flex: 1;
+  flex: 2;
   //align-text: center;
   color: $panel-title-color;
   font-family: $title-font;
@@ -35,21 +35,33 @@
 .detail-story {
   background-color: transparent;
   width: 90%;
-  flex: 6;
+  flex: 10;
   color: black;
   font-family: $text-font;
   font-size: $ui-size-h;
   border: none;
   resize: none;
+  padding-top: 2%;
+}
+
+.detail-author {
+  background-color: transparent;
+  width: 90%;
+  flex: 1;
+  font-family: $title-font;
+  font-size: $ui-size-h;
+  color: $dark-gray;
+  border-top: thin solid $medium-gray;
+  padding-top: 1%;
 }
 
 .detail-close-button {
-  width: 75%;
+  width: auto;
   border: none;
   background-color: transparent;
   font-family: $title-font;
-  font-size: $title-size-h;
+  font-size: $subtitle-size-h;
   color: $event-color;
   cursor: pointer;
-  flex: 1;
+  flex: 2;
 }

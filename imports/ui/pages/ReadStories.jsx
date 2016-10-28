@@ -2,9 +2,12 @@
 
 import '../stylesheets/read.scss'
 import React from 'react'
+import { Meteor } from 'meteor/meteor'
 import TextBox from '../components/TextBox.jsx'
 import Button from '../components/Button.jsx'
+import MenuBar from '../components/MenuBar.jsx'
 import { Session } from 'meteor/session'
+import { browserHistory } from 'react-router'
 
 class ReadStories extends React.Component {
 
@@ -13,7 +16,17 @@ class ReadStories extends React.Component {
     this.state = {}
     this.handleNext = this.handleNext.bind(this)
     this.handlePrevious = this.handlePrevious.bind(this)
+    this.handleHome = this.handleHome.bind(this)
+    this.handleUser = this.handleUser.bind(this)
     this.nrCols = 4
+  }
+
+  handleHome () {
+    browserHistory.push('/')
+  }
+
+  handleUser () {
+    Meteor.userId() ? 'ir para a conta' : browserHistory.push('/login')
   }
 
   handleNext () {
@@ -72,8 +85,14 @@ class ReadStories extends React.Component {
   }
 
   render () {
+    var userDisplay = Meteor.userId() ? 'Account' : 'Login'
+
     return (
       <div className= 'stories-feed'>
+        <MenuBar className='stories-feed-menu-bar' items={[
+          {className: 'stories-feed-menu-bar-home', display: 'Home', handleClick: this.handleHome},
+          {className: 'stories-feed-menu-bar-user', display: userDisplay, handleClick: this.handleUser}
+        ]}/>
         <div className='stories-feed-header'>
           <p className='stories-feed-header-title' disable={true} readonly={true}>STORIES FEED</p>
         </div>

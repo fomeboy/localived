@@ -24,8 +24,8 @@ export default createContainer(() => {
   }
 
   // Local collections
-  languages = LocalLanguages.find({}, {sort: {value: 0}}).fetch()
-  countries = LocalCountries.find({}, {sort: {value: 0}}).fetch()
+  languages = LocalLanguages.find({}, {sort: {value: 1}}).fetch()
+  countries = LocalCountries.find({}, {sort: {value: 1}}).fetch()
   dates = LocalDates.find({}, {sort: {value: -1}}).fetch()
 
   return {

@@ -37,7 +37,6 @@ class WriteStories extends React.Component {
     if (!Meteor.userId()) {
       browserHistory.replace('/login')
     }
-    console.log('USER:' + Meteor.userId())
   }
 
   handleLanguageChange (e) {

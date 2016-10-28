@@ -11,11 +11,10 @@ body {
 }
 
 /* Fonts */
-@import url(https://fonts.googleapis.com/css?family=PT+Sans);
-$title-font: 'PT Sans', sans-serif;
-
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:100);
-$text-font: 'Roboto Slab', serif;
+@import url(https://fonts.googleapis.com/css?family=Arimo:700);
+$title-font: 'Arimo', sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+$text-font: 'Roboto', sans-serif;
 
 /* Text size */
 $title-size-h: 2.9vw; 

@@ -7,5 +7,5 @@ import '../imports/api/server/publications.js'
 import '../imports/startup/server/EmailTemplates.js'
 
 Meteor.startup(() => {
-  process.env.MAIL_URL = 'smtp://email@gmail.com:password@smtp.gmail.com:465/'
+  process.env.MAIL_URL = 'smtp://user@gmail.com:password@smtp.gmail.com:465/'
 })
